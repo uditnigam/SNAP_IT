@@ -1,0 +1,218 @@
+/*********  Camera Page  ************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Tilt Neon", sans-serif;
+}
+
+.main-container {
+    height: 100vh;
+}
+
+/*****************  Top container   ***********************************/
+
+.header-container {
+    height: 7%;
+}
+
+.inner-top-container {
+    background-color: rgb(0, 0, 0);
+    height: 100%;
+}
+
+.camera-container-back-btn {
+    width: 40px;
+    height: 100%;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.back-button-icon {
+    color: wheat;
+    cursor: pointer;
+}
+
+.camera-heading {
+    font-size: 25px;
+    color: white;
+}
+
+/*****************  Middle container   ***********************************/
+.middle-container {
+    background-color: rgb(70, 182, 182);
+    height: 83%;
+    width: 100vw;
+}
+
+.middle-inner-container {
+    height: 100%;
+}
+
+.settings-container {
+    background-color: #000000;
+    height: 100%;
+    width: 4%;
+}
+
+.camera-setting {
+    height: 100%;
+    width: 100%;
+}
+
+.video-container {
+    padding: 0px;
+    background-color: rgb(163, 163, 101);
+    height: 100%;
+    width: 96%;
+}
+
+.video {
+    background-color: rgb(50, 48, 48);
+    height: 100%;
+}
+
+.timer-box{
+    height: 35px;
+    width: 150px;
+    background-color: rgb(194, 162, 162);
+    border-radius: 10px;
+    position: absolute;
+    top: 10%;
+    left: 88%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    gap: 15px;
+}
+
+.initial-timer-box{
+    height: 35px;
+    width: 150px;
+    background-color: rgb(194, 162, 162);
+    border-radius: 10px;
+    position: absolute;
+    top: 10%;
+    left: 88%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    gap: 15px;
+}
+
+.timerActive{
+    display: flex;
+}
+.red_circle{
+    height: 0.8rem;
+    width: 0.8rem;
+    border-radius: 50%;
+    background-color: red;
+}
+
+/*****************  Bottom container   ***********************************/
+
+.action-container{
+    display: flex;
+}
+
+.bottom-container {
+    background-color: rgb(0, 0, 0);
+    height: 10%;
+}
+
+.bottom-inner-container {
+    height: 100%;
+    width: 100%;
+}
+
+.left-action-container {
+    width: 80%;
+}
+
+.activeBtn {
+    border: 3px solid #ffffff !important;
+    border-radius: 50%;
+    background-color: rgb(133, 55, 44) !important;
+}
+
+.button {
+    font-size: 35px;
+    border: none;
+    background-color: black;
+    color: white;
+}
+
+.stop-pause-container{
+    display: none;
+}
+
+/*************** Gallery Button **********/
+.right-gallery-container{
+    width: 20%;
+}
+
+.gallery-open-button {
+    font-size: 35px;
+    border: none;
+    background-color: black;
+    color: white;
+}
+
+/*****************  SideBar Settings   ***********************************/
+
+.setting-open-button {
+
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: relative;
+    z-index: 1;
+    top: -53px;
+    left: -12px;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .setting-close-button {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
