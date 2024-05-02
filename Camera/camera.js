@@ -5,10 +5,11 @@ const actionContainer = document.querySelector(".action-container");
 const stopPauseContainer = document.querySelector(".stop-pause-container");
 const pauseButton = document.querySelector(".pause-button");
 const stopButton = document.querySelector(".stop-button");
-const cameraCapturekBtn = document.querySelector(".camera-click-button");
+const cameraCaptureBtn = document.querySelector(".camera-click-button");
 const videoRecordBtn = document.querySelector(".video-record-button");
 const videoContainer = document.querySelector(".video-container");
 const timerCont = document.querySelector(".timer-cont");
+const messageCont = document.querySelector(".message-cont");
 const settingOpenBtn = document.querySelector(".setting-open-button");
 const mainContainer = document.querySelector(".main-container");
 const settingCloseBtn = document.querySelector(".setting-close-button");
@@ -17,11 +18,14 @@ const video = document.querySelector(".video");
 let buffer = [];
 let timerTime = 0;
 let interval;
-let imageCapture;
-let recordState = false;
 const constraints = {
     audio: false,
-    video: true,
+    video: true
+};
+const videoState = {
+    recordState: false,
+    pauseState: false,
+    message: ''
 };
 
 //ON CLICK OF BACK BUTTON ON CAMERA PAGE, PAGE NAVIGATES TO THE HOMEPAGE
@@ -36,11 +40,9 @@ galleryOpenButton.addEventListener("click", (e) => {
 //Creating a functionality to promt for  permission and open the device's camera if it is available
 navigator.mediaDevices.getUserMedia(constraints)
     .then((stream) => {
-        const videoTrack = stream.getVideoTracks()[0];
+        let videoTrack = stream.getVideoTracks()[0];
         const audioTrack = stream.getAudioTracks();
         video.srcObject = stream;
-        imageCapture = new ImageCapture(videoTrack);
-
     })
     .catch((error) => {
         console.log(error)
@@ -48,7 +50,7 @@ navigator.mediaDevices.getUserMedia(constraints)
 
 
 
-cameraCapturekBtn.addEventListener("click", (e) => {
+cameraCaptureBtn.addEventListener("click", (e) => {
     const canvas = document.createElement("canvas");
     canvas.height = video.videoHeight;
     canvas.width = video.videoWidth;
@@ -56,7 +58,7 @@ cameraCapturekBtn.addEventListener("click", (e) => {
     insideActionContainer.forEach((ele) => {
         ele.classList.remove("activeBtn");
     })
-    cameraCapturekBtn.classList.add("activeBtn");
+    cameraCaptureBtn.classList.add("activeBtn");
 
     let x = (canvas.width - canvas.width) / 2;
     let y = (canvas.width - canvas.height) / 2;
@@ -66,40 +68,61 @@ cameraCapturekBtn.addEventListener("click", (e) => {
 });
 
 videoRecordBtn.addEventListener("click", (e) => {
-    insideActionContainer.forEach((ele) => {
-        ele.classList.remove("activeBtn");
-    })
-    videoRecordBtn.classList.add("activeBtn");
-    initialTimer();
+    if (videoState.recordState === false) {
+        insideActionContainer.forEach((ele) => {
+            ele.classList.remove("activeBtn");
+        })
+        videoRecordBtn.classList.add("activeBtn");
+        initialTimer();
+        pauseButton.addEventListener("click", pauseRecording);
+        stopButton.addEventListener("click", stopRecording);
+    }
+    startRecording();
+})
 
-    console.log(recordState)
-    if (recordState === true) {
+function startRecording() {
+    console.log("start")
+    if (videoState.recordState === true && videoState.pauseState === false) {
         stopPauseContainer.style.display = "flex";
         actionContainer.style.display = "none";
         startTimer();
-        recordState = false;
+        const resumedMsgBox = document.createElement("div");
+        resumedMsgBox.setAttribute("class", "resumed-message-box");
+        resumedMsgBox.innerHTML = `
+            <div class="timer">Resumed</div>
+      `;
+        messageCont.appendChild(resumedMsgBox);
+        videoState.recordState = false;
+        videoState.pauseState = true;
 
     } else {
-        pauseButton.addEventListener("click", (e) => {
-            clearInterval(interval);
-            recordState = true;
-            if (recordState === false) {
-                startTimer();
-            }
-        })
-        stopButton.addEventListener("click", (e) => {
-            stopPauseContainer.style.display = "none";
-            actionContainer.style.display = "flex";
-            clearTimeout(interval);
-            console.log(timerCont)
-            timerCont.innerHTML = "";
-            // recordState = false;        
-        })
-
-        recordState = true;
-
+        videoState.recordState = true;
+        videoState.pauseState = false;
     }
-})
+};
+
+function pauseRecording() {
+    clearInterval(interval);
+    videoState.recordState = true;
+    startRecording();
+    if (videoState.pauseState === false) {
+        const pausedMsgBox = document.createElement("div");
+        pausedMsgBox.setAttribute("class", "paused-message-box");
+        pausedMsgBox.innerHTML = `
+                <div class="timer">Paused</div>
+          `;
+        messageCont.appendChild(pausedMsgBox);
+    }
+};
+
+function stopRecording() {
+    stopPauseContainer.style.display = "none";
+    actionContainer.style.display = "flex";
+    clearTimeout(interval);
+    timerCont.innerHTML = "";
+    timerTime = 0;
+};
+
 function startTimer() {
     interval = setInterval(countUpTimer, 1000);
     function countUpTimer() {
@@ -117,7 +140,8 @@ function startTimer() {
     const pad = (number) => {
         return (number < 10) ? '0' + number : number;
     }
-}
+};
+
 function initialTimer() {
     const initialTimerContainer = document.createElement("div");
     initialTimerContainer.setAttribute("class", "initial-timer-box");
@@ -155,8 +179,8 @@ function currentDate() {
 function generateUID() {
     // I generate the UID from two parts here 
     // to ensure the random number provide enough bits.
-    var firstPart = (Math.random() * 46656) | 0;
-    var secondPart = (Math.random() * 46656) | 0;
+    let firstPart = (Math.random() * 46656) | 0;
+    let secondPart = (Math.random() * 46656) | 0;
     firstPart = ("000" + firstPart.toString(36)).slice(-3);
     secondPart = ("000" + secondPart.toString(36)).slice(-3);
     return firstPart + secondPart;

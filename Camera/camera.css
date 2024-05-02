@@ -75,7 +75,7 @@
     height: 100%;
 }
 
-.timer-box{
+.timer-box {
     height: 35px;
     width: 150px;
     background-color: rgb(194, 162, 162);
@@ -90,7 +90,7 @@
     gap: 15px;
 }
 
-.initial-timer-box{
+.initial-timer-box {
     height: 35px;
     width: 150px;
     background-color: rgb(194, 162, 162);
@@ -105,19 +105,63 @@
     gap: 15px;
 }
 
-.timerActive{
+.timerActive {
     display: flex;
 }
-.red_circle{
+
+.red_circle {
     height: 0.8rem;
     width: 0.8rem;
     border-radius: 50%;
     background-color: red;
 }
 
+.paused-message-box {
+    min-width: 200px;
+    margin-left: -125px;
+    background-color: #1A1B1F;
+    color: rgb(201, 201, 201);
+    text-align: center;
+    padding: 0.7rem;
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    font-size: 20px;
+    border-radius: 2rem;
+    animation: fadeout 3s ease;
+}
+
+@keyframes fadeout {
+    0% {
+        top: 0;
+        opacity: 0;
+    }
+
+    100% {
+        top: 80px;
+        opacity: 1;
+    }
+}
+
+.resumed-message-box{
+    min-width: 200px;
+    margin-left: -125px;
+    background-color: #1A1B1F;
+    color: rgb(201, 201, 201);
+    text-align: center;
+    padding: 0.7rem;
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    font-size: 20px;
+    border-radius: 2rem;
+    animation: fadeout 3s ease;
+}
+
+
 /*****************  Bottom container   ***********************************/
 
-.action-container{
+.action-container {
     display: flex;
 }
 
@@ -148,12 +192,12 @@
     color: white;
 }
 
-.stop-pause-container{
+.stop-pause-container {
     display: none;
 }
 
 /*************** Gallery Button **********/
-.right-gallery-container{
+.right-gallery-container {
     width: 20%;
 }
 
