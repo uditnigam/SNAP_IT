@@ -15,7 +15,8 @@ const mainContainer = document.querySelector(".main-container");
 const settingCloseBtn = document.querySelector(".setting-close-button");
 const video = document.querySelector(".video");
 
-let buffer = [];
+let data = [];
+console.log("data", data)
 let timerTime = 0;
 let interval;
 const constraints = {
@@ -40,15 +41,18 @@ galleryOpenButton.addEventListener("click", (e) => {
 //Creating a functionality to promt for  permission and open the device's camera if it is available
 navigator.mediaDevices.getUserMedia(constraints)
     .then((stream) => {
-        let videoTrack = stream.getVideoTracks()[0];
-        const audioTrack = stream.getAudioTracks();
+        // const audioTrack = stream.getAudioTracks();
         video.srcObject = stream;
+
+        recorder = new MediaRecorder(stream);
+        recorder.ondataavailable = (event) => data.push(event.data);
+        recorder.addEventListener("stop", function () {
+            createDataUrl("video");
+        })
     })
     .catch((error) => {
         console.log(error)
     });
-
-
 
 cameraCaptureBtn.addEventListener("click", (e) => {
     const canvas = document.createElement("canvas");
@@ -81,21 +85,17 @@ videoRecordBtn.addEventListener("click", (e) => {
 })
 
 function startRecording() {
-    console.log("start")
     if (videoState.recordState === true && videoState.pauseState === false) {
         stopPauseContainer.style.display = "flex";
         actionContainer.style.display = "none";
         startTimer();
-        const resumedMsgBox = document.createElement("div");
-        resumedMsgBox.setAttribute("class", "resumed-message-box");
-        resumedMsgBox.innerHTML = `
-            <div class="timer">Resumed</div>
-      `;
-        messageCont.appendChild(resumedMsgBox);
+        recorder.start();
+
         videoState.recordState = false;
         videoState.pauseState = true;
 
     } else {
+
         videoState.recordState = true;
         videoState.pauseState = false;
     }
@@ -104,21 +104,31 @@ function startRecording() {
 function pauseRecording() {
     clearInterval(interval);
     videoState.recordState = true;
-    startRecording();
     if (videoState.pauseState === false) {
+        const resumedMsgBox = document.createElement("div");
+        resumedMsgBox.setAttribute("class", "resumed-message-box");
+        resumedMsgBox.innerHTML = `
+            <div class="timer">Resumed</div>
+      `;
+        messageCont.appendChild(resumedMsgBox);
+        setTimeout(function () { messageCont.removeChild(resumedMsgBox); }, 2000);
+    } else {
         const pausedMsgBox = document.createElement("div");
         pausedMsgBox.setAttribute("class", "paused-message-box");
         pausedMsgBox.innerHTML = `
                 <div class="timer">Paused</div>
           `;
         messageCont.appendChild(pausedMsgBox);
+        setTimeout(function () { messageCont.removeChild(pausedMsgBox); }, 2000);
     }
+    startRecording();
 };
 
 function stopRecording() {
     stopPauseContainer.style.display = "none";
     actionContainer.style.display = "flex";
     clearTimeout(interval);
+    recorder.stop();
     timerCont.innerHTML = "";
     timerTime = 0;
 };
@@ -154,17 +164,16 @@ function initialTimer() {
 
 //Function to create image and video url
 function createDataUrl(type, canvas) {
-    const uid = generateUID();
     const date = currentDate();
     if (type === "camera") {
-        const name = "image_" + uid;
+        const name = "image_" + Date.now();
         const link = canvas.toDataURL();
-        addData(uid, link, "img", name, date);
+        addData(link, "img", name, date);
     } else {
-        const name = "video_" + uid;
-        const blob = new Blob(buffer, { type: 'video/mp4' });
-        addData(uid, blob, "video", name, date);
-        buffer = [];
+        const name = "video_" + Date.now();
+        let blob = new Blob(data, { type: 'video/mp4' });
+        addData(blob, "video", name, date);
+        data = [];
     }
 };
 
@@ -174,23 +183,6 @@ function currentDate() {
     const str = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
     return str;
 }
-
-//To generate random unique id
-function generateUID() {
-    // I generate the UID from two parts here 
-    // to ensure the random number provide enough bits.
-    let firstPart = (Math.random() * 46656) | 0;
-    let secondPart = (Math.random() * 46656) | 0;
-    firstPart = ("000" + firstPart.toString(36)).slice(-3);
-    secondPart = ("000" + secondPart.toString(36)).slice(-3);
-    return firstPart + secondPart;
-};
-
-
-
-
-
-
 
 //Function to open and close the Settings Toolbar Panel
 settingOpenBtn.addEventListener("click", (e) => {
@@ -205,3 +197,8 @@ settingCloseBtn.addEventListener("click", (e) => {
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 };
+window.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+})

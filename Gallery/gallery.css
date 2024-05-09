@@ -9,49 +9,114 @@
     background-color: red;
 }
 
-.header-container{
-    background-color: bisque;
+.header-container {
+    background-color: rgb(0, 0, 0);
     height: 10%;
 }
 
-.inner-top-container{
-    background-color: azure;
+.inner-top-container {
+    color: wheat;
+    background-color: rgb(0, 0, 0);
     height: 100%;
 }
-.gallery-container-back-btn{
+
+.gallery-container-back-btn {
     border: none;
-    background-color: azure;
+    color: wheat;
+    background-color: rgb(0, 0, 0);
     width: 40px;
     font-size: 30px;
 }
 
-.gallery-heading{
+.gallery-heading {
     font-size: 25px;
 }
 
-.gallery-container{
-    background-color: rgb(228, 243, 243);
+.gallery-container {
+    background-color: rgb(66, 84, 84);
     height: 90%;
     display: flex;
-    gap: 20px;
+    gap: 90px;
     flex-wrap: wrap;
     overflow-y: scroll;
     overflow-x: hidden;
     justify-content: center;
-    /* flex-direction: row; */
+    padding: 50px;
 }
 
-/* .image-container{
-    background-color: yellow;
-    height: 150px;
-    width: 150px;
+.media-container {
+    /* position: relative; */
+    background-color: rgb(232, 225, 225);
+    width: 450px;
+    height: 450px;
+    border: 1px solid #e2dddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: center;
-} */
-img {
-    /* background-color: white; */
-    height: 300px;
-    width: 200px;
-   
+    flex-direction: column;
+}
+
+.top-buttons{
+    color: #5F5D64;
+    position: relative;
+    top: 10px;
+    left: -130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.download-button{
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.cross {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.image {
+    height: 320px;
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.video {
+    height: 320px;
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card-button {
+    width: 350px;
+    height: 70px;
+    color: #5F5D64;
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    justify-content: space-around;
+    gap: 30px;
+    overflow: hidden;
+}
+
+.media-name{
+    color: #5F5D64;
+    font-size: 18px;
+}
+
+.edit-button {
+    padding-left: 50px;
+    font-size: 20px;
+    cursor: pointer;
 }

@@ -7,3 +7,4 @@ galleryPageBackBtn.addEventListener("click", (e) => {
 setTimeout(function () {
     displayData();
 }, 100);
+
