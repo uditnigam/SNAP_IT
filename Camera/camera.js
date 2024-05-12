@@ -12,11 +12,10 @@ const timerCont = document.querySelector(".timer-cont");
 const messageCont = document.querySelector(".message-cont");
 const settingOpenBtn = document.querySelector(".setting-open-button");
 const mainContainer = document.querySelector(".main-container");
-const settingCloseBtn = document.querySelector(".setting-close-button");
+const settingCloseIcon = document.querySelector(".setting-close-icon");
 const video = document.querySelector(".video");
 
 let data = [];
-console.log("data", data)
 let timerTime = 0;
 let interval;
 const constraints = {
@@ -166,11 +165,11 @@ function initialTimer() {
 function createDataUrl(type, canvas) {
     const date = currentDate();
     if (type === "camera") {
-        const name = "image_" + Date.now();
+        const name = "Image_" + Date.now();
         const link = canvas.toDataURL();
         addData(link, "img", name, date);
     } else {
-        const name = "video_" + Date.now();
+        const name = "Video_" + Date.now();
         let blob = new Blob(data, { type: 'video/mp4' });
         addData(blob, "video", name, date);
         data = [];
@@ -191,7 +190,7 @@ settingOpenBtn.addEventListener("click", (e) => {
 function openNav() {
     document.getElementById("mySidenav").style.width = "350px";
 };
-settingCloseBtn.addEventListener("click", (e) => {
+settingCloseIcon.addEventListener("click", (e) => {
     closeNav();
 });
 function closeNav() {
@@ -202,3 +201,51 @@ window.addEventListener('keydown', function (event) {
         document.getElementById("mySidenav").style.width = "0";
     }
 })
+
+//Adding Funcionality to Set Arrow Up and Down on Open and Close the Settings modal.
+const filterCollapseBtn = document.querySelector(".filter-collapse-btn");
+filterCollapseBtn.addEventListener("click", (e) => {
+    const arrowDown = document.querySelector(".filter-arrow-down");
+    const arrowUp = document.querySelector(".filter-arrow-up");
+    const activeArrow = filterCollapseBtn.children[2].classList.contains("active-arrow");
+    if (activeArrow) {
+        filterCollapseBtn.children[2].classList.remove("active-arrow");
+        arrowDown.style.display = "flex";
+        arrowUp.style.display = "none";
+    } else {
+        filterCollapseBtn.children[2].classList.add("active-arrow");
+        arrowDown.style.display = "none";
+        arrowUp.style.display = "flex";
+    }
+});
+const zoomCollapseBtn = document.querySelector(".zoom-collapse-btn");
+zoomCollapseBtn.addEventListener("click", (e) => {
+    const arrowDown = document.querySelector(".zoom-arrow-down");
+    const arrowUp = document.querySelector(".zoom-arrow-up");
+    const activeArrow = zoomCollapseBtn.children[2].classList.contains("active-arrow");
+    if (activeArrow) {
+        zoomCollapseBtn.children[2].classList.remove("active-arrow");
+        arrowDown.style.display = "flex";
+        arrowUp.style.display = "none";
+    } else {
+        zoomCollapseBtn.children[2].classList.add("active-arrow");
+        arrowDown.style.display = "none";
+        arrowUp.style.display = "flex";
+    }
+});
+const timerCollapseBtn = document.querySelector(".timer-collapse-btn");
+timerCollapseBtn.addEventListener("click", (e) => {
+    const arrowDown = document.querySelector(".timer-arrow-down");
+    const arrowUp = document.querySelector(".timer-arrow-up");
+    const activeArrow = timerCollapseBtn.children[2].classList.contains("active-arrow");
+    console.log(timerCollapseBtn.children[2].classList.contains("active-arrow"))
+    if (activeArrow) {
+        timerCollapseBtn.children[2].classList.remove("active-arrow");
+        arrowDown.style.display = "flex";
+        arrowUp.style.display = "none";
+    } else {
+        timerCollapseBtn.children[2].classList.add("active-arrow");
+        arrowDown.style.display = "none";
+        arrowUp.style.display = "flex";
+    }
+});

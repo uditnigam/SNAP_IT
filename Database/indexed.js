@@ -90,7 +90,7 @@ function cardButton(e, mediaContainer) {
         deleteMedia(e);
     }
     if (e.target.classList.contains("download-button")) {
-        const name = e.target.parentNode.parentNode.children[1].children[0].innerText;
+        const name = e.target.parentNode.parentNode.children[2].children[0].innerText;
         const target = e.currentTarget;
         downloadMedia(target, name);
     }
@@ -99,9 +99,9 @@ function cardButton(e, mediaContainer) {
 };
 
 function downloadMedia(event, mediaName) {
-    let mediaLink = document.createElement("a");
-    mediaLink.href = event.children[0].src;
-    if (event.children[0].nodeName == "IMG") {
+    const mediaLink = document.createElement("a");
+    mediaLink.href = event.children[1].src;
+    if (event.children[1].nodeName == "IMG") {
         mediaLink.download = mediaName + ".png"
     } else {
         mediaLink.download = mediaName + ".mp4"

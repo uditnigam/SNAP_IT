@@ -217,6 +217,20 @@
     cursor: pointer;
 }
 
+.setting-close-button{
+    height: 5%;
+    font-size: 25px;
+    padding-right: 10px;
+    color: wheat;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.setting-close-icon{
+    cursor: pointer;
+}
+
 .sidenav {
     height: 100%;
     width: 0;
@@ -224,32 +238,18 @@
     z-index: 1;
     top: -53px;
     left: -12px;
-    background-color: #111;
-    overflow-x: hidden;
+    background-color: #030303;
+    overflow: hidden;
     transition: 0.5s;
-    padding-top: 60px;
 }
 
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #f1f1f1;
-}
-
-.sidenav .setting-close-button {
+/* .sidenav .setting-close-button {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-}
+} */
 
 @media screen and (max-height: 450px) {
     .sidenav {
@@ -259,4 +259,87 @@
     .sidenav a {
         font-size: 18px;
     }
+}
+
+.setting-list{
+    height: 95%;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.filter-arrow-down{
+    display: none;
+}
+
+.zoom-arrow-down{
+    display: none;
+}
+
+.timer-arrow-down{
+    display: none;
+}
+
+.filters{
+    border: 1px solid red;
+    padding: 0px;
+    background-color: lightcyan;
+}
+
+.filter-box-header-inner{
+    margin: 0px;
+    width: 100%;
+}
+
+.filter-collapse-btn{
+    font-size: 20px;
+    display: flex;    
+    border-radius: 0%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(170, 170, 165);
+}
+
+.card{
+    border-radius: 0%;
+}
+.zoom{
+    border: 1px solid red;
+    padding: 0px;
+    background-color: lightcyan;
+}
+
+.zoom-box-header-inner{
+    margin: 0px;
+    width: 100%;
+}
+
+.zoom-collapse-btn{
+    font-size: 20px;
+    display: flex;
+    border-radius: 0%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(170, 170, 165);
+}
+
+.timers{
+    border: 1px solid red;
+    padding: 0px;
+    background-color: lightcyan;
+}
+.timer-box-header-inner{
+    margin: 0px;
+    width: 100%;
+}
+
+.timer-collapse-btn{
+    font-size: 20px;
+    display: flex;    
+    border-radius: 0%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(170, 170, 165);
 }

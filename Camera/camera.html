@@ -38,12 +38,92 @@
                     <div class="col-1 settings-container">
                         <span class="setting-open-button bi bi-gear-fill"></span>
                         <div class="col-12 camera-setting">
-                            <div id="mySidenav" class="sidenav">
-                                <a href="javascript:void(0)" class="setting-close-button">&times;</a>
-                                <a href="#">About</a>
-                                <a href="#">Services</a>
-                                <a href="#">Clients</a>
-                                <a href="#">Contact</a>
+                            <div id="mySidenav" class="sidenav row">
+                                <div class="col-12 setting-close-button"><i
+                                        class="bi bi-x-circle-fill setting-close-icon"></i></div>
+                                <div class="row setting-list">
+                                    <div class="col-12 filters">
+                                        <div class="row filter-button p-0">
+                                            <div class="col-12 filter-box-header">
+                                                <div class="row filter-box-header-inner">
+                                                    <button class="col-12 btn btn-primary filter-collapse-btn"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapse-filter" aria-expanded="true"
+                                                        aria-controls="collapse-filter">
+                                                        Filters
+                                                        <input class="btn btn-danger" type="reset" value="Reset">
+                                                        <i class="bi bi-arrow-down-circle-fill filter-arrow-down"></i>
+                                                        <i
+                                                            class="bi bi-arrow-up-circle-fill filter-arrow-up active-arrow"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="collapse show" id="collapse-filter">
+                                                    <div class="card card-body">
+                                                        <div class="col-12">Tint</div>
+                                                        <div class="col-12">Temperature</div>
+                                                        <div class="col-12">Brightness</div>
+                                                        <div class="col-12">Contrast</div>
+                                                        <div class="col-12">Saturation</div>
+                                                        <div class="col-12">Grayscale</div>
+                                                        <div class="col-12">Invert</div>
+                                                        <div class="col-12">Hue</div>
+                                                        <div class="col-12">Sepia</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 zoom">
+                                        <div class="row zoom-button p-0">
+                                            <div class="col-12 zoom-box-header">
+                                                <div class="row zoom-box-header-inner">
+                                                    <button class="col-12 btn btn-primary zoom-collapse-btn"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapse-zoom" aria-expanded="false"
+                                                        aria-controls="collapse-zoom">
+                                                        Zoom
+                                                        <input class="btn btn-danger" type="reset" value="Reset">
+                                                        <i class="bi bi-arrow-down-circle-fill zoom-arrow-down"></i>
+                                                        <i
+                                                            class="bi bi-arrow-up-circle-fill zoom-arrow-up active-arrow"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="collapse show" id="collapse-zoom">
+                                                    <div class="card card-body">
+                                                        <div class="col-12">Zoom-IN</div>
+                                                        <div class="col-12">Zoom-OUT</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 timers-">
+                                        <div class="row timer-button p-0">
+                                            <div class="col-12 timer-box-header">
+                                                <div class="row timer-box-header-inner">
+                                                    <button class="col-12 btn btn-primary timer-collapse-btn"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapse-timer" aria-expanded="false"
+                                                        aria-controls="collapse-timer">
+                                                        Timer
+                                                        <input class="btn btn-danger" type="reset" value="Reset">
+                                                        <i class="bi bi-arrow-down-circle-fill timer-arrow-down"></i>
+                                                        <i
+                                                            class="bi bi-arrow-up-circle-fill timer-arrow-up active-arrow"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="collapse show" id="collapse-timer">
+                                                    <div class="card card-body">
+                                                        <div class="col-12">3 sec</div>
+                                                        <div class="col-12">5 sec</div>
+                                                        <div class="col-12">10 sec</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
