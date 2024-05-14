@@ -31,12 +31,15 @@ function addData(data, type, name, date) {
 
 function displayData() {
     const galleryContainer = document.querySelector(".gallery-container");
+    const galleryDataInfo = document.querySelector(".gallery-data-info");
     const transaction = db.transaction("gallery", "readwrite");
     const gallery = transaction.objectStore("gallery");
     const request = gallery.openCursor();
     request.onsuccess = function () {
         const output = request.result;
         if (output) {
+
+            // galleryDataInformation(output, galleryDataInfo);
             mediaContainerOfGallery(output, galleryContainer);
         }
     }
@@ -115,3 +118,54 @@ function deleteMedia(event) {
     const transaction = db.transaction("gallery", "readwrite");
     const request = transaction.objectStore("gallery").delete(dataTask);
 };
+
+// let imgVar = 0;
+// let videoVar = 0;
+// function galleryDataInformation(output, galleryDataInfo) {
+//     let galleryContainer = document.querySelectorAll(".media-container");
+//     // console.log(galleryContainer)
+  
+//     galleryContainer.forEach((e) => {
+//         console.log(e.children[1].classList.contains("image"))
+
+//         if (e.children[1].classList.contains("image")) {
+//             imgVar++;
+//             // console.log(imgVar)
+
+//         } 
+//         if (e.children[1].classList.contains("video")) {
+//             videoVar++;
+//         }
+
+//     })
+//     const dataInfoContainer = document.createElement("div");
+//     dataInfoContainer.innerHTML = `
+//     ${imgVar} photo ${videoVar} video
+//     `
+//     galleryDataInfo.appendChild(dataInfoContainer)
+
+
+
+//     // console.log(arr)
+//     // arr.forEach((e) => {
+//     //     // console.log(e)
+
+//     //     if (e === "img") {
+//     //         imgVar++;
+//     //         // console.log(imgVar)
+
+//     //     } else if (e === "video") {
+//     //         videoVar++;
+//     //     }
+
+//     // })
+//     // console.log(videoVar)
+
+
+//     // const dataInfoContainer = document.createElement("div");
+//     // dataInfoContainer.innerHTML = `
+//     // ${imgVar} + "photo" + ${videoVar} + "video"
+//     // `
+//     // galleryDataInfo.appendChild(dataInfoContainer)
+//     // return galleryDataInformation;
+// }

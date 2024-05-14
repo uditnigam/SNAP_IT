@@ -286,6 +286,7 @@
     border: 1px solid red;
     padding: 0px;
     background-color: lightcyan;
+    width: 100%;
 }
 
 .filter-box-header-inner{
@@ -302,8 +303,19 @@
     background-color: rgb(170, 170, 165);
 }
 
+label{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .card{
     border-radius: 0%;
+}
+
+.card-body{
+    display: flex;
+    gap: 10px;
 }
 .zoom{
     border: 1px solid red;
@@ -328,7 +340,7 @@
 .timers{
     border: 1px solid red;
     padding: 0px;
-    background-color: lightcyan;
+    background-color: lightcyan;    
 }
 .timer-box-header-inner{
     margin: 0px;
