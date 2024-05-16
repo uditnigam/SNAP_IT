@@ -81,18 +81,19 @@ videoRecordBtn.addEventListener("click", (e) => {
         stopButton.addEventListener("click", stopRecording);
     }
     startRecording();
-})
+});
 
 function startRecording() {
+    console.log("start videoState: ", videoState)
     if (videoState.recordState === true && videoState.pauseState === false) {
         stopPauseContainer.style.display = "flex";
         actionContainer.style.display = "none";
         startTimer();
         recorder.start();
-
+        
         videoState.recordState = false;
         videoState.pauseState = true;
-
+        console.log("start videoState: ", videoState)
     } else {
 
         videoState.recordState = true;
@@ -102,7 +103,8 @@ function startRecording() {
 
 function pauseRecording() {
     clearInterval(interval);
-    videoState.recordState = true;
+    // videoState.recordState = true;
+    // console.log("pause videoState: ", videoState)
     if (videoState.pauseState === false) {
         const resumedMsgBox = document.createElement("div");
         resumedMsgBox.setAttribute("class", "resumed-message-box");
@@ -111,6 +113,8 @@ function pauseRecording() {
       `;
         messageCont.appendChild(resumedMsgBox);
         setTimeout(function () { messageCont.removeChild(resumedMsgBox); }, 2000);
+        // videoState.pauseState = true;
+        // videoState.pauseState = true;
     } else {
         const pausedMsgBox = document.createElement("div");
         pausedMsgBox.setAttribute("class", "paused-message-box");
@@ -119,6 +123,7 @@ function pauseRecording() {
           `;
         messageCont.appendChild(pausedMsgBox);
         setTimeout(function () { messageCont.removeChild(pausedMsgBox); }, 2000);
+        // videoState.pauseState = false;
     }
     startRecording();
 };
@@ -181,7 +186,7 @@ function currentDate() {
     const date = new Date();
     const str = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
     return str;
-}
+};
 
 //Function to open and close the Settings Toolbar Panel
 settingOpenBtn.addEventListener("click", (e) => {
@@ -200,7 +205,7 @@ window.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
         document.getElementById("mySidenav").style.width = "0";
     }
-})
+});
 
 //Adding Funcionality to Set Arrow Up and Down on Open and Close the Settings modal.
 const filterCollapseBtn = document.querySelector(".filter-collapse-btn");

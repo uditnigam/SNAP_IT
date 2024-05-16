@@ -4,13 +4,10 @@ const galleryBtn = document.querySelector(".right-container-gallery-btn");
 
 
 
+
 cameraBtn.addEventListener("click", (e) => {
     window.location.href = "/Camera/camera.html";
 })
-
-// screenRecordingBtn.addEventListener("click", (e) => {
-//     window.location.href = "/Screen_Recording/screen.html";
-// })
 
 galleryBtn.addEventListener("click", (e) => {
     window.location.href = "/Gallery/gallery.html";
@@ -31,16 +28,26 @@ screenRecordingBtn.addEventListener("click", async function (e) {
             data.push(e.data);
         })
         mediaRecorder.addEventListener("stop", (e) => {
-
+            createDataUrl();
         })
-    })
-})
+    }).catch(function (err) {
+        console.log(err)
+    });
 
-function createDataUrl(type, canvas) {
+    if (recordState == false) {
+        mediaRecorder.start();
+        recordState = true;
+    } else {
+        mediaRecorder.stop();
+        recordState = false;
+    }
+});
+
+function createDataUrl() {
     const date = currentDate();
     const name = "Screen_" + Date.now();
-    let blob = new Blob(data, { type: 'screenRec/mp4' });
-    addData(blob, "scrRec", name, date);
+    let blob = new Blob(data, { type: 'screen/mp4' });
+    addData(blob, "screen", name, date);
     data = [];
 };
 
@@ -49,4 +56,4 @@ function currentDate() {
     const date = new Date();
     const str = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
     return str;
-}
+};
