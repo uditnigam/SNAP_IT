@@ -14,23 +14,47 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row main-container">
-            <div class="col-8 left-container"></div>
-            <div class="col right-container">
+            <div class="col-8 left-container">
+                <img class="homepage-image" src="./homepage.jpg">
+            </div>
+            <div class="col-4 right-container">
                 <div class="row right-container-inner">
-                    <div class="col-12 right-container-heading">Snap It</div>
-                    <div class="col">
+                    <div class="col-12 right-container-heading">
+                        <div class="row m-0 p-0">
+                            <div class="col-12 heading-title">Snap It</div>
+                            <div class="col-12 heading-punch-line">Capture moments, unlock memories</div>
+                        </div>
+                    </div>
+                    <div class="col-12 right-container-main">
+                        <div class="row d-flex flex-column align-items-center justify-content-center gap-5">
+                            <div class="col-12">
+                                <button type="button" class="btn right-container-camera-btn ">
+                                    <i class="bi bi-camera-fill camera-icon"></i>
+                                    Camera
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn right-container-screen-recording-btn">
+                                    <i class="bi bi-camera-video-fill camera-icon"></i>
+                                    Screen Recording
+                                </button></div>
+                        </div>
+                    </div>
+                    <div class="col-12 right-container-gallery">
                         <div class="row d-flex flex-column align-items-center justify-content-center gap-4">
-                            <div class="col"><button type="button"
-                                    class="btn right-container-camera-btn">Camera</button></div>
-                            <div class="col"><button type="button"
-                                    class="btn right-container-screen-recording-btn">Screen Recording</button></div>
-                            <div class="col"><button type="button"
-                                    class="btn  right-container-gallery-btn">Gallery</button></div>
+                            <div class="col">
+                                <button type="button" class="btn  right-container-gallery-btn">
+                                    <i class="bi bi-images camera-icon"></i>
+                                    Gallery
+                                </button></div>
                         </div>
                     </div>
                 </div>

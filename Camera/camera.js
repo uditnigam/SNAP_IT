@@ -13,15 +13,18 @@ const messageCont = document.querySelector(".message-cont");
 const settingOpenBtn = document.querySelector(".setting-open-button");
 const mainContainer = document.querySelector(".main-container");
 const settingCloseIcon = document.querySelector(".setting-close-icon");
+
 const video = document.querySelector(".video");
 
+let cameraTimer = 0;
 let data = [];
-let timerTime = 0;
+let videoTimer = 0;
 let interval;
 const constraints = {
     audio: false,
     video: true
 };
+
 const videoState = {
     recordState: false,
     pauseState: false,
@@ -53,7 +56,55 @@ navigator.mediaDevices.getUserMedia(constraints)
         console.log(error)
     });
 
+const cameraClickTimer = document.querySelectorAll(".camera-click-timer");
+cameraClickTimer.forEach((e) => {
+    e.addEventListener("click", (event) => {
+        cameraTimer = Number(event.target.getAttribute("value"));
+        console.log(cameraTimer)
+    })
+})
 cameraCaptureBtn.addEventListener("click", (e) => {
+    if (cameraTimer == 3) {
+        setTimeout(function () {
+            captureImage();
+            console.log("3")
+            cameraTimer = 0;
+        }, 4000);
+        countdownTimer();
+    } else if (cameraTimer == 5) {
+        setTimeout(function () {
+            captureImage();
+            console.log("5")
+            cameraTimer = 0;
+        }, 6000);
+        countdownTimer();
+    } else if (cameraTimer == 10) {
+        setTimeout(function () {
+            captureImage();
+            console.log("10")
+            cameraTimer = 0;
+        }, 11000);
+        countdownTimer();
+    } else {
+        captureImage();
+        console.log("0")
+    }
+});
+//Function Countdown Timer 
+function countdownTimer() {
+    let timeleft = cameraTimer;
+    let downloadTimer = setInterval(function () {
+        if (timeleft <= 0) {
+            clearInterval(downloadTimer);
+            document.getElementById("countdown").style.display = "none";
+        } else {
+            document.getElementById("countdown").style.display = "flex";
+            document.getElementById("countdown").innerHTML = timeleft;
+        }
+        timeleft -= 1;
+    }, 1000);
+}
+function captureImage() {
     const canvas = document.createElement("canvas");
     canvas.height = video.videoHeight;
     canvas.width = video.videoWidth;
@@ -68,9 +119,35 @@ cameraCaptureBtn.addEventListener("click", (e) => {
     tool.drawImage(video, x, y);
 
     createDataUrl("camera", canvas);
-});
+}
 
 videoRecordBtn.addEventListener("click", (e) => {
+
+    if (cameraTimer == 3) {
+        setTimeout(function () {
+            videoRecording();
+            console.log("3")
+        }, 4000);
+        countdownTimer();
+    } else if (cameraTimer == 5) {
+        setTimeout(function () {
+            videoRecording() ;
+            console.log("5")
+        }, 6000);
+        countdownTimer();
+    } else if (cameraTimer == 10) {
+        setTimeout(function () {
+            videoRecording() ;
+            console.log("10")
+        }, 11000);
+        countdownTimer();
+    } else {
+        videoRecording() ;
+        console.log("0")
+    }
+});
+
+function videoRecording() {
     if (videoState.recordState === false) {
         insideActionContainer.forEach((ele) => {
             ele.classList.remove("activeBtn");
@@ -81,7 +158,7 @@ videoRecordBtn.addEventListener("click", (e) => {
         stopButton.addEventListener("click", stopRecording);
     }
     startRecording();
-});
+};
 
 function startRecording() {
     console.log("start videoState: ", videoState)
@@ -90,7 +167,7 @@ function startRecording() {
         actionContainer.style.display = "none";
         startTimer();
         recorder.start();
-        
+
         videoState.recordState = false;
         videoState.pauseState = true;
         console.log("start videoState: ", videoState)
@@ -140,9 +217,9 @@ function stopRecording() {
 function startTimer() {
     interval = setInterval(countUpTimer, 1000);
     function countUpTimer() {
-        timerTime++;
-        const numberMinutes = Math.floor(timerTime / 60);
-        const numberSeconds = timerTime % 60;
+        videoTimer++;
+        const numberMinutes = Math.floor(videoTimer / 60);
+        const numberSeconds = videoTimer % 60;
         const timerContainer = document.createElement("div");
         timerContainer.setAttribute("class", "timer-box");
         timerContainer.innerHTML = `

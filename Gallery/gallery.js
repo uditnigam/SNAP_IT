@@ -2,6 +2,7 @@ const galleryPageBackBtn = document.querySelector(".gallery-container-back-btn")
 const searchInput = document.querySelector(".searchInput");
 const searchIcon = document.querySelector(".searchIcon");
 const galleryFilter = document.querySelector(".btn-group");
+const loader = document.querySelector(".page-loader");
 let imgVar = 0;
 let videoVar = 0;
 let screenVar = 0;
@@ -12,9 +13,10 @@ galleryPageBackBtn.addEventListener("click", (e) => {
 })
 
 setTimeout(function () {
+    loader.style.display = "none";
     getMediaCardsFromDatabase();
     galleryDataInformation();
-}, 800);
+}, 1000);
 
 function getMediaCardsFromDatabase() {
     galleryData.forEach((data) => {
