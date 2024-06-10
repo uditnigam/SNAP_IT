@@ -1,8 +1,10 @@
 const galleryPageBackBtn = document.querySelector(".gallery-container-back-btn");
 const searchInput = document.querySelector(".searchInput");
 const searchIcon = document.querySelector(".searchIcon");
-const galleryFilter = document.querySelector(".btn-group");
+const galleryFilter = document.querySelector(".filter-btn-group");
+const gallerySorting = document.querySelector(".sort-btn-group");
 const loader = document.querySelector(".page-loader");
+const galleryContainer = document.querySelector(".gallery-container");
 let imgVar = 0;
 let videoVar = 0;
 let screenVar = 0;
@@ -16,7 +18,7 @@ setTimeout(function () {
     loader.style.display = "none";
     getMediaCardsFromDatabase();
     galleryDataInformation();
-}, 1000);
+}, 1200);
 
 function getMediaCardsFromDatabase() {
     galleryData.forEach((data) => {
@@ -73,6 +75,7 @@ function cardButton(e, mediaContainer) {
     if (e.target.classList.contains("cross")) {
         mediaContainer.remove();
         deleteMedia(e);
+        // galleryDataInformation()
     }
     if (e.target.classList.contains("download-button")) {
         const name = e.target.parentNode.parentNode.children[2].children[0].innerText;
@@ -121,12 +124,10 @@ function downloadMedia(event, mediaName) {
 
 function galleryDataInformation() {
     let galleryDataInfo = document.querySelector(".gallery-data-info");
-    // console.log(galleryData)
     galleryData.forEach((e) => {
-        // console.log(e)
         if (e.type === "img") {
             imgVar++;
-        } else if (e.type === "video"){
+        } else if (e.type === "video") {
             videoVar++;
         } else {
             screenVar++;
@@ -154,6 +155,7 @@ galleryFilter.addEventListener("change", (e) => {
     const mediaContainer = document.querySelectorAll(".media-container");
     const filterValue = e.target.id;
     if (mediaContainer) {
+
         if (filterValue === "all") {
             mediaContainer.forEach((e) => {
                 e.style.display = "flex";
@@ -170,3 +172,55 @@ galleryFilter.addEventListener("change", (e) => {
         }
     }
 });
+
+gallerySorting.addEventListener("change", (e) => {
+    const mediaContainer = document.querySelectorAll(".media-container");
+
+    const sortingValueByMethod = document.querySelectorAll(".sorting-by-method");
+    sortingValueByMethod.forEach((e) => {
+        if (e.checked) {
+            currentSortingMethod = e.id;
+        }
+    })
+    const sortingValueByOrder = document.querySelectorAll(".sorting-by-order");
+    sortingValueByOrder.forEach((e) => {
+        if (e.checked) {
+            currentSortingOrder = e.id;
+        }
+    })
+    if (mediaContainer) {
+        if (currentSortingMethod === "Date Created") {
+            selectionSort(galleryData, "date", currentSortingOrder)
+        } else{
+            selectionSort(galleryData, "name", currentSortingOrder)
+        }
+        galleryContainer.innerHTML = "";
+    }
+    getMediaCardsFromDatabase();
+})
+
+function selectionSort(arr, method, order) {
+    let n = arr.length;
+    for (let i = 0; i < (n - 1); i++) {
+        let min_max = i;
+        if (order == "Ascending")
+            for (let j = i + 1; j < n; j++) {
+                if (arr[j][method] < arr[min_max][method]) {
+                    min_max = j;
+                }
+            }
+        else
+            for (let j = i + 1; j < n; j++) {
+                if (arr[j][method] > arr[min_max][method]) {
+                    min_max = j;
+                }
+            }
+        if (min_max !== i) {
+            let temp = arr[i];
+            arr[i] = arr[min_max];
+            arr[min_max] = temp;
+        }
+    }
+    // arr.slice(0,5)
+    // console.log(arr);
+}

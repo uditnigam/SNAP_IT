@@ -39,35 +39,73 @@
                         <button class="searchIcon bi bi-search"></button>
                         <input type="text" placeholder="Search..." class="searchInput">
                     </div>
+                    <div class="col-1 sort-here">
+                        <button class="bi bi-arrow-down-up" type="button" data-bs-toggle="dropdown"
+                            data-bs-auto-close="outside" aria-expanded="false">
+                        </button>
+                        <div class="sort-btn-group">
+                            <ul class="dropdown-menu ">
+                                <li>
+                                    <input type="radio" class="btn-check sorting-by-method" name="sortName" id="Date Created"
+                                        autocomplete="off" checked>
+                                    <label class="btn btn-outline-primary" value="Date Created" for="Date Created">Date
+                                        Created</label>
+                                </li>
+                                <li>
+                                    <input type="radio" class="btn-check sorting-by-method" name="sortName" id="Name" autocomplete="off">
+                                    <label class="btn btn-outline-primary" value="Name" for="Name">Name</label>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <input type="radio" class="btn-check sorting-by-order" name="sortRadio" id="Ascending"
+                                        autocomplete="off" checked>
+                                    <label class="btn btn-outline-primary" value="Ascending"
+                                        for="Ascending">Ascending</label>
+                                </li>
+                                <li>
+                                    <input type="radio" class="btn-check sorting-by-order" name="sortRadio" id="Descending"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" value="Descending"
+                                        for="Descending">Descending</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="col-1 filter-here">
                         <button type="button" class="filter-icon bi bi-filter" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                            data-bs-auto-close="outside" aria-expanded="false">
                         </button>
-                        <ul class="dropdown-menu">
-                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                <input type="radio" class="btn-check" name="btnradio" id="all" autocomplete="off"
-                                    checked>
-                                <label class="btn btn-outline-primary" value="All" for="all">All</label>
-
-                                <input type="radio" class="btn-check" name="btnradio" id="image" autocomplete="off">
-                                <label class="btn btn-outline-primary" value="images" for="image">Images</label>
-
-                                <input type="radio" class="btn-check" name="btnradio" id="video" autocomplete="off">
-                                <label class="btn btn-outline-primary" value="video" for="video">Videos</label>
-
-                                <input type="radio" class="btn-check" name="btnradio" id="screen" autocomplete="off">
-                                <label class="btn btn-outline-primary" value="screen" for="screen">Screen
-                                    Recording</label>
-                            </div>
-                        </ul>
-
+                        <div class="filter-btn-group">
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <input type="radio" class="btn-check" name="filterRadio" id="all" autocomplete="off"
+                                        checked>
+                                    <label class="btn btn-outline-primary" value="All" for="all">All</label>
+                                </li>
+                                <li>
+                                    <input type="radio" class="btn-check" name="filterRadio" id="image"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" value="images" for="image">Images</label>
+                                </li>
+                                <li>
+                                    <input type="radio" class="btn-check" name="filterRadio" id="video"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" value="video" for="video">Videos</label>
+                                </li>
+                                <li>
+                                    <input type="radio" class="btn-check" name="filterRadio" id="screen"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" value="screen" for="screen">Screen
+                                        Recording</label>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
                 </div>
 
             </div>
             <div class="col-12 gallery-container">
-
             </div>
         </div>
     </div>

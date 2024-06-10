@@ -258,3 +258,7 @@ body {
     gap: 10px;
 }
 
+.sort-btn-group{
+    display: flex;
+}
+
