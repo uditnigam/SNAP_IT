@@ -139,8 +139,13 @@ function galleryDataInformation() {
 
 //Functionality of Search Bar in Gallery to search any item with its name
 searchIcon.addEventListener("click", (e) => {
+    const mediaContainer = document.querySelectorAll(".media-container");
     if (input) {
-        searchInput.style.display = "none";
+        mediaContainer.forEach((e) => {
+            e.style.display = "flex"
+            searchInput.style.display = "none";
+            searchInput.value = "";
+        })
         input = !input;
     }
     else {
@@ -150,12 +155,44 @@ searchIcon.addEventListener("click", (e) => {
     }
 });
 
+searchInput.addEventListener("keyup", (e) => {
+    const mediaContainer = document.querySelectorAll(".media-container");
+    let query = e.target.value;
+    if (mediaContainer) {
+        if (query.trim() === "") {
+            mediaContainer.forEach((elem) => {
+                elem.style.display = "flex";
+            })
+        }
+        else {
+            mediaContainer.forEach((elem) => {
+                if (query.trim() && elem.children[1].getAttribute("name").includes(query)) {
+                    elem.style.display = "flex";
+                } else {
+                    elem.style.display = "none";
+                }
+            })
+        }
+    }
+})
+
+window.addEventListener("keydown", function (event) {
+    const mediaContainer = document.querySelectorAll(".media-container");
+    if (event.key === "Escape") {
+        mediaContainer.forEach((e) => {
+            e.style.display = "flex"
+            searchInput.style.display = "none";
+            searchInput.value = "";
+            input = false;
+        })
+    }
+})
+
 //Functionality to Filter the items with the particular type.
 galleryFilter.addEventListener("change", (e) => {
     const mediaContainer = document.querySelectorAll(".media-container");
     const filterValue = e.target.id;
     if (mediaContainer) {
-
         if (filterValue === "all") {
             mediaContainer.forEach((e) => {
                 e.style.display = "flex";
@@ -191,7 +228,7 @@ gallerySorting.addEventListener("change", (e) => {
     if (mediaContainer) {
         if (currentSortingMethod === "Date Created") {
             selectionSort(galleryData, "date", currentSortingOrder)
-        } else{
+        } else {
             selectionSort(galleryData, "name", currentSortingOrder)
         }
         galleryContainer.innerHTML = "";

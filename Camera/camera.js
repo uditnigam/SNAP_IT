@@ -64,31 +64,20 @@ cameraClickTimer.forEach((e) => {
     })
 })
 cameraCaptureBtn.addEventListener("click", (e) => {
-    if (cameraTimer == 3) {
+    if(cameraTimer > 0){
         setTimeout(function () {
             captureImage();
-            console.log("3")
             cameraTimer = 0;
-        }, 4000);
+        }, (cameraTimer+1)*1000);
         countdownTimer();
-    } else if (cameraTimer == 5) {
-        setTimeout(function () {
-            captureImage();
-            console.log("5")
-            cameraTimer = 0;
-        }, 6000);
-        countdownTimer();
-    } else if (cameraTimer == 10) {
-        setTimeout(function () {
-            captureImage();
-            console.log("10")
-            cameraTimer = 0;
-        }, 11000);
-        countdownTimer();
-    } else {
+    }
+    else {
         captureImage();
         console.log("0")
     }
+    timerCont.innerHTML='';
+
+
 });
 //Function Countdown Timer 
 function countdownTimer() {
