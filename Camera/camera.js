@@ -278,45 +278,45 @@ const filterCollapseBtn = document.querySelector(".filter-collapse-btn");
 filterCollapseBtn.addEventListener("click", (e) => {
     const arrowDown = document.querySelector(".filter-arrow-down");
     const arrowUp = document.querySelector(".filter-arrow-up");
-    const activeArrow = filterCollapseBtn.children[2].classList.contains("active-arrow");
+    const activeArrow = filterCollapseBtn.children[0].children[0].classList.contains("active-arrow");
     if (activeArrow) {
-        filterCollapseBtn.children[2].classList.remove("active-arrow");
-        arrowDown.style.display = "flex";
-        arrowUp.style.display = "none";
-    } else {
-        filterCollapseBtn.children[2].classList.add("active-arrow");
+        filterCollapseBtn.children[0].children[0].classList.remove("active-arrow");
         arrowDown.style.display = "none";
         arrowUp.style.display = "flex";
+    } else {
+        filterCollapseBtn.children[0].children[0].classList.add("active-arrow");
+        arrowDown.style.display = "flex";
+        arrowUp.style.display = "none";
     }
 });
 const zoomCollapseBtn = document.querySelector(".zoom-collapse-btn");
 zoomCollapseBtn.addEventListener("click", (e) => {
     const arrowDown = document.querySelector(".zoom-arrow-down");
     const arrowUp = document.querySelector(".zoom-arrow-up");
-    const activeArrow = zoomCollapseBtn.children[2].classList.contains("active-arrow");
+    const activeArrow = zoomCollapseBtn.children[0].children[0].classList.contains("active-arrow");
     if (activeArrow) {
-        zoomCollapseBtn.children[2].classList.remove("active-arrow");
-        arrowDown.style.display = "flex";
-        arrowUp.style.display = "none";
-    } else {
-        zoomCollapseBtn.children[2].classList.add("active-arrow");
+        zoomCollapseBtn.children[0].children[0].classList.remove("active-arrow");
         arrowDown.style.display = "none";
         arrowUp.style.display = "flex";
+    } else {
+        zoomCollapseBtn.children[0].children[0].classList.add("active-arrow");
+        arrowDown.style.display = "flex";
+        arrowUp.style.display = "none";
     }
 });
 const timerCollapseBtn = document.querySelector(".timer-collapse-btn");
 timerCollapseBtn.addEventListener("click", (e) => {
     const arrowDown = document.querySelector(".timer-arrow-down");
     const arrowUp = document.querySelector(".timer-arrow-up");
-    const activeArrow = timerCollapseBtn.children[2].classList.contains("active-arrow");
-    console.log(timerCollapseBtn.children[2].classList.contains("active-arrow"))
+    const activeArrow = timerCollapseBtn.children[0].children[0].classList.contains("active-arrow");
+    // console.log(timerCollapseBtn.children[1])
     if (activeArrow) {
-        timerCollapseBtn.children[2].classList.remove("active-arrow");
-        arrowDown.style.display = "flex";
-        arrowUp.style.display = "none";
-    } else {
-        timerCollapseBtn.children[2].classList.add("active-arrow");
+        timerCollapseBtn.children[0].children[0].classList.remove("active-arrow");
         arrowDown.style.display = "none";
         arrowUp.style.display = "flex";
+    } else {
+        timerCollapseBtn.children[0].children[0].classList.add("active-arrow");
+        arrowDown.style.display = "flex";
+        arrowUp.style.display = "none";
     }
 });

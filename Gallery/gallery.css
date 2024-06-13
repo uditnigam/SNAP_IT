@@ -197,6 +197,8 @@ body {
     cursor: pointer;
 }
 
+/********************* TOOLS CONTAINER ***************/
+
 .tools-container {
     height: 8%;
     width: 100%;
@@ -224,7 +226,6 @@ body {
 }
 .searchIcon {
     background-color: rgb(66, 84, 84);
-    /* font-size: 25px; */
     border: none;
 }
 
@@ -240,7 +241,10 @@ body {
     border: 1px solid black;
     color: #eee0e0;
 }
-
+.sort-icon{
+    background-color: rgb(66, 84, 84);
+    border: none;
+}
 .filter-icon{
     background-color: rgb(66, 84, 84);
     /* font-size: 40px; */

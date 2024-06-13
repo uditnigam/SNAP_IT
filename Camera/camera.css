@@ -3,70 +3,90 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Tilt Neon", sans-serif;
+    font-family: "Lato", sans-serif;
 }
-
-.main-container {
+.container-fluid{
     height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+}
+.main-container {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
 /*****************  Top container   ***********************************/
 
 .header-container {
-    height: 7%;
+    height: 4%;
+    width: 100%;
+    padding: 0px;
 }
 
 .inner-top-container {
     background-color: rgb(0, 0, 0);
     height: 100%;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
 }
 
 .camera-container-back-btn {
-    width: 40px;
     height: 100%;
-    font-size: 30px;
+    width: 4%;
+    font-size: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 10px;
+    padding: 0px;
 }
 
 .back-button-icon {
-    color:rgba(114, 114, 115, 1);
+    color:#8e8e93;
     cursor: pointer;
 }
 
 .camera-heading {
-    font-size: 25px;
+    font-size: 20px;
     color: rgba(189, 199, 204, 1);
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin: 0;
-    padding: 0;
-    font-size: 30px;
+    gap: 15px;
+    margin: 0px;
+    padding: 0px;
 }
 
 /*****************  Middle container   ***********************************/
 .middle-container {
-    background-color: rgb(70, 182, 182);
-    height: 83%;
-    width: 100vw;
-    
+    background-color: rgb(0, 0, 0);
+    height: 96%;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
 }
 
 .middle-inner-container {
     height: 100%;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
 }
 
 .settings-container {
     background-color: #000000;
     height: 100%;
     width: 4%;
-    
+    padding-top: 10px;
+    padding-left: 35px;
+    display: flex;
+    justify-content: center;
 }
 
 .setting-open-button{
+    font-size: 25px!important;
     color: rgba(189, 199, 204, 1)!important;
 }
 .camera-setting {
@@ -77,13 +97,14 @@
 .video-container {
     padding: 0px;
     background-color: rgb(163, 163, 101);
-    height: 100%;
-    width: 96%;
+    height: 96%;
+    width: 90%;
 }
 
 .video {
     background-color: rgb(50, 48, 48);
     height: 100%;
+    width: 100%;
     object-fit: fill;
 }
 
@@ -174,37 +195,45 @@
 /*****************  Bottom container   ***********************************/
 
 .action-container {
-    display: flex;
-}
-
-.bottom-container {
-    background-color: rgb(0, 0, 0);
-    height: 10%;
-}
-
-.bottom-inner-container {
-    height: 100%;
+    height: 75%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-top: 200px;
 }
 
-.left-action-container {
-    width: 80%;
+.right-action-container {
+    height: 100%;
+    width: 6%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .activeBtn {
-    /* border: 3px solid #ffffff !important; */
+    height: 200px;
+    width: 200px;
     border: 2px solid rgba(24, 172, 203, 1) !important;
     border-radius: 50%;
+    color: rgba(24, 172, 203, 1)!important;
+
 }
 
 .button {
-    font-size: 35px;
-    padding: 10px;
-    padding-right: 20px;
-    padding-left: 20px;
-    border: none;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    border: 2px solid #727273;
+    border-radius: 50%;
     background-color: black;
-    color: rgba(24, 172, 203, 1) ;
+    color: #727273;
 }
 
 .stop-pause-container {
@@ -213,11 +242,13 @@
 
 /*************** Gallery Button **********/
 .right-gallery-container {
-    width: 20%;
+    height: 25%;
+    /* width: 100%; */
 }
 
 .gallery-open-button {
-    font-size: 35px;
+    padding-top: 100px;
+    font-size: 30px;
     border: none;
     background-color: black;
     color: rgba(24, 172, 203, 1) ;
@@ -236,7 +267,7 @@
     height: 5%;
     font-size: 25px;
     padding-right: 10px;
-    color: wheat;
+    color: #6C6767;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -247,13 +278,14 @@
 }
 
 .sidenav {
-    height: 100%;
+    height: 101%;
     width: 0;
     position: relative;
     z-index: 1;
-    top: -53px;
-    left: -12px;
-    background-color: #030303;
+    top: -10px;
+    left: -38px;
+    border-radius: 8px;
+    background-color: #302F2F;
     overflow: hidden;
     transition: 0.5s;
 }
@@ -268,6 +300,21 @@
     }
 }
 
+.arrow{
+    font-size: 25px;
+}
+
+.card{
+    border-radius: 0%;
+}
+
+.card-body{
+    display: flex;
+    color: #d8d0d0;
+    gap: 10px;
+    background-color: #302F2F;
+    padding-left: 30px;
+}
 .setting-list{
     height: 95%;
     margin: 0px;
@@ -290,9 +337,8 @@
 }
 
 .filters{
-    border: 1px solid red;
     padding: 0px;
-    background-color: lightcyan;
+    background-color: rgb(90, 161, 161);
     width: 100%;
 }
 
@@ -301,13 +347,38 @@
     width: 100%;
 }
 
+.filter-heading{
+    font-size: 18px;
+    display: flex;
+    gap: 10px;
+    width: 70%;
+    padding-left: 15px;
+    color: #BEC7CC;
+}
+.filter-buttons{
+    width: 30%;
+    color: #6C6767;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+.filter-reset{
+    font-size: 13px;
+    padding: 2px 5px 2px 5px;
+    color: #6C6767;
+    background-color: #302F2F;
+    border: 1px solid #727273;
+    border-radius: 5px;
+}
 .filter-collapse-btn{
+    height: 54px;
     font-size: 20px;
     display: flex;    
-    border-radius: 0%;
+    border: none;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(170, 170, 165);
+    /* border-bottom: 1px solid #6C6767; */
+    background-color:#302F2F;
 }
 
 label{
@@ -316,16 +387,7 @@ label{
     justify-content: space-between;
 }
 
-.card{
-    border-radius: 0%;
-}
-
-.card-body{
-    display: flex;
-    gap: 10px;
-}
 .zoom{
-    border: 1px solid red;
     padding: 0px;
     background-color: lightcyan;
 }
@@ -335,32 +397,84 @@ label{
     width: 100%;
 }
 
+.zoom-heading{
+    font-size: 18px;
+    display: flex;
+    gap: 10px;
+    width: 70%;
+    padding-left: 15px;
+    color: #BEC7CC;
+}
+.zoom-buttons{
+    width: 30%;
+    color: #6C6767;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+.zoom-reset{
+    font-size: 13px;
+    padding: 2px 5px 2px 5px;
+    color: #6C6767;
+    background-color: #302F2F;
+    border: 1px solid #727273;
+    border-radius: 5px;
+}
 .zoom-collapse-btn{
+    height: 54px;
     font-size: 20px;
     display: flex;
-    border-radius: 0%;
+    border: none;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(170, 170, 165);
+    border-top: 1px solid #6C6767;
+    /* border-bottom: 1px solid #6C6767; */
+    background-color: #302F2F;
 }
 
 .timers{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding: 0px;
-    background-color: lightcyan;    
+    /* background-color: lightcyan;     */
 }
 .timer-box-header-inner{
     margin: 0px;
     width: 100%;
 }
 
+.timer-heading{
+    font-size: 18px;
+    display: flex;
+    gap: 10px;
+    width: 70%;
+    padding-left: 15px;
+    color: #BEC7CC;
+}
+.timer-buttons{
+    width: 30%;
+    color: #6C6767;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
 .timer-collapse-btn{
+    height: 54px;
     font-size: 20px;
     display: flex;    
-    border-radius: 0%;
+    border: none;
+    border-top: 1px solid #6C6767;
+    border-bottom: 1px solid #6C6767;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(170, 170, 165);
+    background-color: #302F2F;
+}
+.timer-reset{
+    font-size: 13px;
+    padding: 2px 5px 2px 5px;
+    color: #6C6767;
+    background-color: #302F2F;
+    border: 1px solid #727273;
+    border-radius: 5px;
 }
 
 .camera-click-timer{

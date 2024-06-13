@@ -23,14 +23,14 @@
 
 <body>
 
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
         <div class="row main-container">
             <div class="col-12 header-container">
-                <div class="row inner-top-container d-flex align-items-center gap-5">
+                <div class="row inner-top-container">
                     <div class="col-1 camera-container-back-btn">
-                        <i class="back-button-icon bi bi-backspace-fill"></i>
+                        <i class="back-button-icon bi bi-chevron-left"></i>
                     </div>
-                    <div class="col-11 camera-heading">
+                    <div class="col camera-heading">
                         <i class="bi bi-camera-fill camera-icon"></i>
                         Camera
                     </div>
@@ -42,24 +42,29 @@
                         <span class="setting-open-button bi bi-gear-fill"></span>
                         <div class="col-12 camera-setting">
                             <div id="mySidenav" class="sidenav row">
-                                <div class="col-12 setting-close-button"><i
-                                        class="bi bi-x-circle-fill setting-close-icon"></i></div>
+                                <div class="col-12 setting-close-button"><i class="bi bi-x-lg setting-close-icon"></i>
+                                </div>
                                 <div class="col-12 setting-list">
-                                    <div class="row m-0">
+                                    <div class="row">
                                         <div class="col-12 filters">
                                             <div class="row filter-button">
                                                 <div class="col-12 filter-box-header">
                                                     <div class="row filter-box-header-inner">
-                                                        <button class="col-12 btn btn-primary filter-collapse-btn"
+                                                        <button class="col-12 btn btn-secondary filter-collapse-btn"
                                                             type="button" data-bs-toggle="collapse"
                                                             data-bs-target="#collapse-filter" aria-expanded="true"
                                                             aria-controls="collapse-filter">
-                                                            Filters
-                                                            <input class="btn btn-danger" type="reset" value="Reset">
-                                                            <i
-                                                                class="bi bi-arrow-down-circle-fill filter-arrow-down"></i>
-                                                            <i
-                                                                class="bi bi-arrow-up-circle-fill filter-arrow-up active-arrow"></i>
+                                                            <div class="filter-heading">
+                                                                <i class="bi bi-funnel-fill"></i>
+                                                                Filters
+                                                            </div>
+                                                            <div class="filter-buttons">
+                                                                <input class="filter-reset" type="reset"
+                                                                    value="Reset">
+                                                                <i class="bi bi-chevron-down filter-arrow-down arrow"></i>
+                                                                <i
+                                                                    class="bi bi-chevron-up filter-arrow-up active-arrow arrow"></i>
+                                                            </div>
                                                         </button>
                                                     </div>
                                                     <div class="collapse show" id="collapse-filter">
@@ -112,15 +117,21 @@
                                             <div class="row zoom-button">
                                                 <div class="col-12 zoom-box-header">
                                                     <div class="row zoom-box-header-inner">
-                                                        <button class="col-12 btn btn-primary zoom-collapse-btn"
+                                                        <button class="col-12 btn btn-secondary zoom-collapse-btn"
                                                             type="button" data-bs-toggle="collapse"
                                                             data-bs-target="#collapse-zoom" aria-expanded="false"
                                                             aria-controls="collapse-zoom">
-                                                            Zoom
-                                                            <input class="btn btn-danger" type="reset" value="Reset">
-                                                            <i class="bi bi-arrow-down-circle-fill zoom-arrow-down"></i>
-                                                            <i
-                                                                class="bi bi-arrow-up-circle-fill zoom-arrow-up active-arrow"></i>
+                                                            <div class="zoom-heading">
+                                                                <i class="bi bi-arrows-fullscreen"></i>
+                                                                Zoom
+                                                            </div>
+                                                            <div class="zoom-buttons">
+                                                                <input class="zoom-reset" type="reset"
+                                                                    value="Reset">
+                                                                <i class="bi bi-chevron-down zoom-arrow-down arrow"></i>
+                                                                <i
+                                                                    class="bi bi-chevron-up zoom-arrow-up active-arrow arrow"></i>
+                                                            </div>
                                                         </button>
                                                     </div>
                                                     <div class="collapse show" id="collapse-zoom">
@@ -137,23 +148,29 @@
                                             <div class="row timer-button">
                                                 <div class="col-12 timer-box-header">
                                                     <div class="row timer-box-header-inner">
-                                                        <button class="col-12 btn btn-primary timer-collapse-btn"
+                                                        <button class="col-12 btn btn-secondary timer-collapse-btn"
                                                             type="button" data-bs-toggle="collapse"
                                                             data-bs-target="#collapse-timer" aria-expanded="false"
                                                             aria-controls="collapse-timer">
-                                                            Timer
-                                                            <input class="btn btn-danger" type="reset" value="Reset">
-                                                            <i
-                                                                class="bi bi-arrow-down-circle-fill timer-arrow-down"></i>
-                                                            <i
-                                                                class="bi bi-arrow-up-circle-fill timer-arrow-up active-arrow"></i>
+                                                            <div class="timer-heading">
+                                                                <i class="bi bi-stopwatch-fill"></i>
+                                                                Timer
+                                                            </div>
+                                                            <div class="timer-buttons">
+                                                                <input class="timer-reset" type="reset"
+                                                                    value="Reset">
+                                                                <i class="bi bi-chevron-down timer-arrow-down active-arrow arrow"></i>
+                                                                <i
+                                                                    class="bi bi-chevron-up timer-arrow-up arrow"></i>
+                                                            </div>
                                                         </button>
                                                     </div>
                                                     <div class="collapse show" id="collapse-timer">
                                                         <div class="card card-body">
                                                             <div class="col-12 camera-click-timer" value="3">3 sec</div>
                                                             <div class="col-12 camera-click-timer" value="5">5 sec</div>
-                                                            <div class="col-12 camera-click-timer" value="10">10 sec</div>
+                                                            <div class="col-12 camera-click-timer" value="10">10 sec
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -166,26 +183,18 @@
                         </div>
                     </div>
 
-                    <div class="col-11 video-container">
+                    <div class="col-10 video-container">
                         <div class="countdown" id="countdown"></div>
                         <video class="col-12 video" autoplay></video>
                         <div class="timer-cont"></div>
                         <div class="message-cont"></div>
                     </div>
-                </div>
-            </div>
-            <div class="col-12 bottom-container">
-                <div class="row bottom-inner-container">
-                    <div class="col-11 left-action-container d-flex align-items-center justify-content-center">
+                    <div class="col right-action-container">
                         <div class="row action-container">
-                            <!-- <div class="col-6 camera-button"> -->
                             <button type="button" class="col-6 button camera-click-button bi bi-camera activeBtn">
                             </button>
-                            <!-- </div> -->
-                            <!-- <div class="col-6 video-button"> -->
                             <button type="button" class="col-6 button video-record-button bi bi-camera-video">
                             </button>
-                            <!-- </div> -->
                         </div>
                         <div class="row stop-pause-container">
                             <!-- <div class="col-6 camera-button"> -->
@@ -197,10 +206,10 @@
                             </button>
                             <!-- </div> -->
                         </div>
-                    </div>
-                    <div class="col-1 right-gallery-container d-flex align-items-center justify-content-center">
-                        <button type="button" class="gallery-open-button bi bi-images">
-                        </button>
+                        <div class="col-1 right-gallery-container d-flex align-items-center justify-content-center">
+                            <button type="button" class="gallery-open-button bi bi-images">
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
