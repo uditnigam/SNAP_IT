@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="camera.css">
+    <link rel="stylesheet" href="settingsToolbar.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,9 +60,9 @@
                                                                 Filters
                                                             </div>
                                                             <div class="filter-buttons">
-                                                                <input class="filter-reset" type="reset"
-                                                                    value="Reset">
-                                                                <i class="bi bi-chevron-down filter-arrow-down arrow"></i>
+                                                                <input class="filter-reset" type="reset" value="Reset">
+                                                                <i
+                                                                    class="bi bi-chevron-down filter-arrow-down arrow"></i>
                                                                 <i
                                                                     class="bi bi-chevron-up filter-arrow-up active-arrow arrow"></i>
                                                             </div>
@@ -69,45 +70,78 @@
                                                     </div>
                                                     <div class="collapse show" id="collapse-filter">
                                                         <div class="card card-body">
-                                                            <label for="tint-range" class="col-12 tint-label">Tint<input
-                                                                    type="range" class="tint-range" id="tint-range"
-                                                                    min="0" max="100" value="50"></label>
-                                                            <label for="temperature-range"
-                                                                class="col-12 temperature-label">Temperature<input
-                                                                    type="range" class="temperature-range"
-                                                                    id="temperature-range" min="0" max="100"
-                                                                    value="50"></label>
-                                                            <label for="brightness-range"
-                                                                class="col-12 brightness-label">Brightness<input
-                                                                    type="range" class="brightness-range"
-                                                                    id="brightness-range" min="0" max="100"
-                                                                    value="50"></label>
-                                                            <label for="contrast-range"
-                                                                class="col-12 contrast-label">Contrast<input
-                                                                    type="range" class="contrast-range"
-                                                                    id="contrast-range" min="0" max="100"
-                                                                    value="50"></label>
-                                                            <label for="saturation-range"
-                                                                class="col-12 saturation-label">Saturation<input
-                                                                    type="range" class="saturation-range"
-                                                                    id="saturation-range" min="0" max="100"
-                                                                    value="50"></label>
-                                                            <label for="grayscale-range"
-                                                                class="col-12 grayscale-label">Grayscale<input
-                                                                    type="range" class="grayscale-range"
-                                                                    id="grayscale-range" min="0" max="100"
-                                                                    value="50"></label>
-                                                            <label for="invert-range"
-                                                                class="col-12 invert-label">Invert<input type="range"
-                                                                    class="invert-range" id="invert-range" min="0"
-                                                                    max="100" value="50"></label>
-                                                            <label for="sepia-range"
-                                                                class="col-12 sepia-label">Sepia<input type="range"
-                                                                    class="sepia-range" id="sepia-range" min="0"
-                                                                    max="100" value="50"></label>
-                                                            <label for="hue-range" class="col-12 hue-label">Hue<input
+                                                            <div class="none">
+                                                                <label for="brightness-range"
+                                                                    class="col-12 brightness-label all-filter-items">Brightness<input
+                                                                        type="range" class="brightness-range"
+                                                                        id="brightness-range" min="0" max="200"
+                                                                        step="10" value="100">
+                                                                </label>
+                                                                <div class="filter_value brightness-value">100%</div>
+                                                            </div>
+                                                            <div class="none">
+                                                                <label for="contrast-range"
+                                                                    class="col-12 contrast-label all-filter-items">Contrast<input
+                                                                        type="range" class="contrast-range"
+                                                                        id="contrast-range" min="0" max="200" step="10"
+                                                                        value="100">
+                                                                </label>
+                                                                <div class="filter_value contrast-value">100%</div>
+                                                            </div>
+                                                            <div class="none">
+                                                                <label for="saturation-range"
+                                                                    class="col-12 saturation-label all-filter-items">Saturation<input
+                                                                        type="range" class="saturation-range"
+                                                                        id="saturation-range" min="0" max="200"
+                                                                        step="10" value="100">
+                                                                </label>
+                                                                <div class="filter_value saturate-value">100%</div>
+                                                            </div>
+                                                            <div class="none">
+                                                                <label for="grayscale-range"
+                                                                    class="col-12 grayscale-label all-filter-items">Grayscale<input
+                                                                        type="range" class="grayscale-range"
+                                                                        id="grayscale-range" min="0" max="100" step="10"
+                                                                        value="0">
+
+                                                                </label>
+                                                                <div class="filter_value grayscale-value">0%</div>
+                                                            </div>
+                                                            <div class="none">
+                                                                <label for="invert-range"
+                                                                    class="col-12 invert-label all-filter-items">Invert<input
+                                                                        type="range" class="invert-range"
+                                                                        id="invert-range" min="0" max="100" step="10"
+                                                                        value="0">
+                                                                </label>
+                                                                <div class="filter_value invert-value">0%</div>
+                                                            </div>
+                                                            <div class="none">
+                                                                <label for="sepia-range"
+                                                                    class="col-12 sepia-label all-filter-items">Sepia<input
+                                                                        type="range" class="sepia-range"
+                                                                        id="sepia-range" min="0" max="100" step="10"
+                                                                        value="0">
+                                                                </label>
+                                                                <div class="filter_value sepia-value">0%</div>
+                                                            </div>
+                                                            <div class="none">
+                                                            <label for="hue-range"
+                                                                class="col-12 hue-label all-filter-items">Hue<input
                                                                     type="range" class="hue-range" id="hue-range"
-                                                                    min="0" max="100" value="50"></label>
+                                                                    min="0" max="360" step="90" value="0">
+                                                            </label>
+                                                            <div class="filter_value hue-value">0%</div>
+                                                        </div>
+                                                        <div class="none">
+                                                            <label for="opacity-range"
+                                                                class="col-12 opacity-label all-filter-items">Opacity<input
+                                                                    type="range" class="opacity-range"
+                                                                    id="opacity-range" min="0" max="100" step="10"
+                                                                    value="100">
+                                                            </label>
+                                                            <div class="filter_value opacity-value">100%</div>
+                                                        </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -126,8 +160,7 @@
                                                                 Zoom
                                                             </div>
                                                             <div class="zoom-buttons">
-                                                                <input class="zoom-reset" type="reset"
-                                                                    value="Reset">
+                                                                <input class="zoom-reset" type="reset" value="Reset" data-bs-toggle="false">
                                                                 <i class="bi bi-chevron-down zoom-arrow-down arrow"></i>
                                                                 <i
                                                                     class="bi bi-chevron-up zoom-arrow-up active-arrow arrow"></i>
@@ -157,16 +190,15 @@
                                                                 Timer
                                                             </div>
                                                             <div class="timer-buttons">
-                                                                <input class="timer-reset" type="reset"
-                                                                    value="Reset">
-                                                                <i class="bi bi-chevron-down timer-arrow-down active-arrow arrow"></i>
+                                                                <input class="timer-reset" type="reset" value="Reset">
                                                                 <i
-                                                                    class="bi bi-chevron-up timer-arrow-up arrow"></i>
+                                                                    class="bi bi-chevron-down timer-arrow-down active-arrow arrow"></i>
+                                                                <i class="bi bi-chevron-up timer-arrow-up arrow"></i>
                                                             </div>
                                                         </button>
                                                     </div>
                                                     <div class="collapse show" id="collapse-timer">
-                                                        <div class="card card-body">
+                                                        <div class="card card-body timer-card">
                                                             <div class="col-12 camera-click-timer" value="3">3 sec</div>
                                                             <div class="col-12 camera-click-timer" value="5">5 sec</div>
                                                             <div class="col-12 camera-click-timer" value="10">10 sec
@@ -215,14 +247,13 @@
             </div>
         </div>
     </div>
-    </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="/Database/indexed.js"></script>
     <script src="/Camera/camera.js"></script>
+    <script src="/Camera/settingsToolbar.js"></script>
 </body>
 
 </html>

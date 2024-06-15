@@ -243,7 +243,6 @@
 /*************** Gallery Button **********/
 .right-gallery-container {
     height: 25%;
-    /* width: 100%; */
 }
 
 .gallery-open-button {
@@ -254,220 +253,7 @@
     color: rgba(24, 172, 203, 1) ;
 }
 
-/*****************  SideBar Settings   ***********************************/
 
-.setting-open-button {
-
-    color: white;
-    font-size: 35px;
-    cursor: pointer;
-}
-
-.setting-close-button{
-    height: 5%;
-    font-size: 25px;
-    padding-right: 10px;
-    color: #6C6767;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.setting-close-icon{
-    cursor: pointer;
-}
-
-.sidenav {
-    height: 101%;
-    width: 0;
-    position: relative;
-    z-index: 1;
-    top: -10px;
-    left: -38px;
-    border-radius: 8px;
-    background-color: #302F2F;
-    overflow: hidden;
-    transition: 0.5s;
-}
-
-@media screen and (max-height: 450px) {
-    .sidenav {
-        padding-top: 15px;
-    }
-
-    .sidenav a {
-        font-size: 18px;
-    }
-}
-
-.arrow{
-    font-size: 25px;
-}
-
-.card{
-    border-radius: 0%;
-}
-
-.card-body{
-    display: flex;
-    color: #d8d0d0;
-    gap: 10px;
-    background-color: #302F2F;
-    padding-left: 30px;
-}
-.setting-list{
-    height: 95%;
-    margin: 0px;
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-}
-
-.filter-arrow-down{
-    display: none;
-}
-
-.zoom-arrow-down{
-    display: none;
-}
-
-.timer-arrow-down{
-    display: none;
-}
-
-.filters{
-    padding: 0px;
-    background-color: rgb(90, 161, 161);
-    width: 100%;
-}
-
-.filter-box-header-inner{
-    margin: 0px;
-    width: 100%;
-}
-
-.filter-heading{
-    font-size: 18px;
-    display: flex;
-    gap: 10px;
-    width: 70%;
-    padding-left: 15px;
-    color: #BEC7CC;
-}
-.filter-buttons{
-    width: 30%;
-    color: #6C6767;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-.filter-reset{
-    font-size: 13px;
-    padding: 2px 5px 2px 5px;
-    color: #6C6767;
-    background-color: #302F2F;
-    border: 1px solid #727273;
-    border-radius: 5px;
-}
-.filter-collapse-btn{
-    height: 54px;
-    font-size: 20px;
-    display: flex;    
-    border: none;
-    justify-content: space-around;
-    align-items: center;
-    /* border-bottom: 1px solid #6C6767; */
-    background-color:#302F2F;
-}
-
-label{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.zoom{
-    padding: 0px;
-    background-color: lightcyan;
-}
-
-.zoom-box-header-inner{
-    margin: 0px;
-    width: 100%;
-}
-
-.zoom-heading{
-    font-size: 18px;
-    display: flex;
-    gap: 10px;
-    width: 70%;
-    padding-left: 15px;
-    color: #BEC7CC;
-}
-.zoom-buttons{
-    width: 30%;
-    color: #6C6767;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-.zoom-reset{
-    font-size: 13px;
-    padding: 2px 5px 2px 5px;
-    color: #6C6767;
-    background-color: #302F2F;
-    border: 1px solid #727273;
-    border-radius: 5px;
-}
-.zoom-collapse-btn{
-    height: 54px;
-    font-size: 20px;
-    display: flex;
-    border: none;
-    justify-content: space-around;
-    align-items: center;
-    border-top: 1px solid #6C6767;
-    /* border-bottom: 1px solid #6C6767; */
-    background-color: #302F2F;
-}
-
-.timers{
-    /* border: 1px solid red; */
-    padding: 0px;
-    /* background-color: lightcyan;     */
-}
-.timer-box-header-inner{
-    margin: 0px;
-    width: 100%;
-}
-
-.timer-heading{
-    font-size: 18px;
-    display: flex;
-    gap: 10px;
-    width: 70%;
-    padding-left: 15px;
-    color: #BEC7CC;
-}
-.timer-buttons{
-    width: 30%;
-    color: #6C6767;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-.timer-collapse-btn{
-    height: 54px;
-    font-size: 20px;
-    display: flex;    
-    border: none;
-    border-top: 1px solid #6C6767;
-    border-bottom: 1px solid #6C6767;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #302F2F;
-}
 .timer-reset{
     font-size: 13px;
     padding: 2px 5px 2px 5px;
@@ -477,17 +263,15 @@ label{
     border-radius: 5px;
 }
 
+
 .camera-click-timer{
     cursor: pointer;
 }
 
 .countdown{
-    /* height: 30px;
-    width: 50px; */
     font-size: 100px;
     position: absolute;
     color: white;
-    /* background-color: wheat; */
     top: 45%;
     left: 55%;
 }
