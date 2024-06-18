@@ -102,7 +102,7 @@ function captureImage() {
         ele.classList.remove("activeBtn");
     })
     cameraCaptureBtn.classList.add("activeBtn");
-
+    tool.filter = newFilter;
     let x = (canvas.width - canvas.width) / 2;
     let y = (canvas.width - canvas.height) / 2;
     tool.drawImage(video, x, y);

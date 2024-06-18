@@ -125,17 +125,29 @@ body {
     justify-content: center;
     flex-direction: column;
 }
+.top-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px 15px 0px 15px;
+    /* height: 0%; */
+}
 
-.top-buttons {
+.top-left-buttons {
     color: #5F5D64;
-    position: relative;
-    top: 10px;
-    left: -130px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    gap: 15px;
+    gap: 18px;
+}
+
+.image-checkbox{
+    /* color: #5F5D64; */
+    width: 100%;
+    height: 100%;
+    background-color: yellow;
 }
 
 .download-button {
@@ -147,9 +159,14 @@ body {
     font-size: 25px;
     cursor: pointer;
 }
+.image-checkbox{
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+}
 
 .image {
-    height: 320px;
+    height: 350px;
     width: 350px;
     display: flex;
     align-items: center;
@@ -180,8 +197,8 @@ body {
     color: #5F5D64;
     display: flex;
     align-items: center;
-    padding-right: 20px;
-    justify-content: space-around;
+    padding: 0px 20px;
+    justify-content: space-between;
     gap: 30px;
     overflow: hidden;
 }
@@ -230,9 +247,20 @@ body {
     width: 50px;
 }
 
+.delete-all-button{
+    display: none;
+    cursor: pointer;
+}
+
+.download-all-button{
+    display: none;
+    cursor: pointer;
+}
+
 .searchIcon {
     background-color: rgb(66, 84, 84);
     border: none;
+    font-size: 30px;
 }
 
 .searchInput {
@@ -253,6 +281,8 @@ body {
 .sort-icon{
     background-color: rgb(66, 84, 84);
     border: none;
+    font-size: 30px;
+
 }
 .filter-icon{
     background-color: rgb(66, 84, 84);
@@ -276,5 +306,11 @@ body {
 .dropdown-divider{
     background-color: grey;
     height: 2px;
+    width: 100%;
+}
+
+.header-main-checkbox{
+    background-color: rgb(139, 185, 185);
+    height: 30px;
     width: 100%;
 }

@@ -3,7 +3,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Lato", sans-serif;
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 400;
 }
 .container-fluid{
     height: 100vh;
@@ -24,6 +25,7 @@
     height: 4%;
     width: 100%;
     padding: 0px;
+    z-index: 1;
 }
 
 .inner-top-container {
@@ -62,7 +64,7 @@
 /*****************  Middle container   ***********************************/
 .middle-container {
     background-color: rgb(0, 0, 0);
-    height: 96%;
+    height: 92%;
     width: 100%;
     padding: 0px;
     margin: 0px;
@@ -95,13 +97,17 @@
 }
 
 .video-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0px;
     background-color: rgb(163, 163, 101);
-    height: 96%;
+    height: 100%;
     width: 90%;
 }
 
 .video {
+    
     background-color: rgb(50, 48, 48);
     height: 100%;
     width: 100%;
@@ -194,6 +200,16 @@
 
 /*****************  Bottom container   ***********************************/
 
+.bottom-container{
+    background-color: rgb(0, 0, 0);
+    height: 4%;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    z-index: 1;
+}
+/*****************  Right Action container   ***********************************/
+
 .action-container {
     height: 75%;
     width: 100%;
@@ -212,6 +228,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    z-index: 1;
 }
 
 .activeBtn {

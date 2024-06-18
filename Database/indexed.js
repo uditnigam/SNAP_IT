@@ -30,8 +30,7 @@ function addData(data, type, name, date) {
     gallery.add(infoData);
 };
 //Delete the cards from the gallery
-function deleteMedia(event) {
-    const uid = Number(event.target.parentNode.parentNode.getAttribute("uid"));
+function deleteMedia(uid) {
     const transaction = db.transaction("gallery", "readwrite");
     const request = transaction.objectStore("gallery").delete(uid);
 };
@@ -46,7 +45,6 @@ function updateData(updatedName, key) {
         cards.name = updatedName;
         objectStore.put(cards).then;
     }
-    
 };
 function getAllDataFromIndexDb() {
     const transaction = db.transaction("gallery", "readonly");

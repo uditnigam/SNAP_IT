@@ -5,14 +5,52 @@ const galleryFilter = document.querySelector(".filter-btn-group");
 const gallerySorting = document.querySelector(".sort-btn-group");
 const loader = document.querySelector(".page-loader");
 const galleryContainer = document.querySelector(".gallery-container");
+const deleteAllButton = document.querySelector(".delete-all-button");
+const downloadAllButton = document.querySelector(".download-all-button");
+const galleryCheckbox = document.querySelector(".header-main-checkbox");
 let imgVar = 0;
 let videoVar = 0;
 let screenVar = 0;
 let input = false;
 
+galleryCheckbox.addEventListener("click", (e) => {
+    const allImageCheckbox = document.querySelectorAll(".image-checkbox");
+    allImageCheckbox.forEach((ele) => {
+        if (e.target.checked) {
+            // console.log("checked");
+            deleteAllButton.style.display = "flex";
+            downloadAllButton.style.display = "flex";
+            ele.checked = true;
+            downloadAllData(ele);
+            deleteAllData(ele);
+        } else {
+            // console.log("unchecked");
+            deleteAllButton.style.display = "none";
+            downloadAllButton.style.display = "none";
+            ele.checked = false;
+        }
+    })
+})
+// Function to download all the data of the gallery container on selecting the all checkboxes
+function downloadAllData(ele) {
+    downloadAllButton.addEventListener("click", (e) => {
+        const name = ele.parentElement.parentElement.parentElement.children[2].children[0].innerText;
+        const target = ele.parentElement.parentElement.parentElement.children[1];
+        downloadMedia(target, name);
+    })
+};
+// Function to delete all the data of the gallery container on selecting the all checkboxes
+function deleteAllData(ele){
+    deleteAllButton.addEventListener("click", (e) => {
+        galleryContainer.innerText = ""
+        const uid = Number(ele.parentElement.parentElement.parentElement.getAttribute("uid"));
+        deleteMedia(uid);
+    })
+};
+
 galleryPageBackBtn.addEventListener("click", (e) => {
     window.location.href = "/homepage.html";
-})
+});
 
 setTimeout(function () {
     loader.style.display = "none";
@@ -36,8 +74,13 @@ function mediaContainerOfGallery(id, type, link, date, name) {
         mediaContainer.classList.add("image");
         mediaContainer.innerHTML = `
             <div class="top-buttons">
-                <i class="bi bi-x-circle-fill cross"></i>
-                <i class="bi bi-file-arrow-down-fill download-button"></i>
+                <div class="top-left-buttons">
+                    <i class="bi bi-x-circle-fill cross"></i>
+                    <i class="bi bi-file-arrow-down-fill download-button"></i>
+                </div>
+                <div class="top-right-buttons">
+                    <input class="image-checkbox" type="checkbox">
+                </div>
             </div>
             <img class="image" src="${link}" name="${name}"></img>
             <div class="card-button">
@@ -74,12 +117,13 @@ function mediaContainerOfGallery(id, type, link, date, name) {
 function cardButton(e, mediaContainer) {
     if (e.target.classList.contains("cross")) {
         mediaContainer.remove();
-        deleteMedia(e);
+        const uid = Number(e.target.parentElement.parentElement.parentElement.getAttribute("uid"));
+        deleteMedia(uid);
         // galleryDataInformation()
     }
     if (e.target.classList.contains("download-button")) {
-        const name = e.target.parentNode.parentNode.children[2].children[0].innerText;
-        const target = e.currentTarget;
+        const name = e.target.parentNode.parentNode.parentNode.children[2].children[0].innerText;
+        const target = e.currentTarget.children[1];
         downloadMedia(target, name);
     }
     if (e.target.classList.contains("edit-button")) {
@@ -112,8 +156,8 @@ function editName(mediaName, event) {
 //Functionality of download media button.
 function downloadMedia(event, mediaName) {
     const mediaLink = document.createElement("a");
-    mediaLink.href = event.children[1].src;
-    if (event.children[1].nodeName == "IMG") {
+    mediaLink.href = event.src;
+    if (event.nodeName == "IMG") {
         mediaLink.download = mediaName + ".png"
     } else {
         mediaLink.download = mediaName + ".mp4"
@@ -123,7 +167,7 @@ function downloadMedia(event, mediaName) {
 };
 
 function galleryDataInformation() {
-    let galleryDataInfo = document.querySelector(".gallery-data-info");
+    const galleryDataInfo = document.querySelector(".gallery-data-info");
     galleryData.forEach((e) => {
         if (e.type === "img") {
             imgVar++;
@@ -133,9 +177,8 @@ function galleryDataInformation() {
             screenVar++;
         }
     })
-
     galleryDataInfo.innerText = `${imgVar} photos, ${videoVar} videos, ${screenVar} screen-recording`;
-}
+};
 
 //Functionality of Search Bar in Gallery to search any item with its name
 searchIcon.addEventListener("click", (e) => {

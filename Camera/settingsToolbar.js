@@ -6,10 +6,6 @@ const grayscaleRange = document.querySelector(".grayscale-range");
 const invertRange = document.querySelector(".invert-range");
 const sepiaRange = document.querySelector(".sepia-range");
 const hueRange = document.querySelector(".hue-range");
-const filterReset = document.querySelector(".filter-reset");
-const zoomReset = document.querySelector(".zoom-reset");
-const timerReset = document.querySelector(".timer-reset");
-
 const brightnessValue = document.querySelector(".brightness-value");
 const contrastValue = document.querySelector(".contrast-value");
 const grayscaleValue = document.querySelector(".grayscale-value");
@@ -19,16 +15,25 @@ const invertValue = document.querySelector(".invert-value");
 const sepiaValue = document.querySelector(".sepia-value");
 const hueValue = document.querySelector(".hue-value");
 
+const filterReset = document.querySelector(".filter-reset");
+const zoomReset = document.querySelector(".zoom-reset");
+const timerReset = document.querySelector(".timer-reset");
 
-let brightness = 100;
-let opacity = 100;
-let contrast = 100;
-let saturate = 100;
-let grayscale = 0;
-let invert = 0;
-let sepia = 0;
-let hueRotate = 0;
+const zoomIn = document.querySelector(".zoom-in");
+const zoomOut = document.querySelector(".zoom-out");
 
+const filters = {
+    brightness: 100,
+    contrast: 100,
+    grayscale: 0,
+    opacity: 100,
+    saturate: 100,
+    invert: 0,
+    sepia: 0,
+    hueRotate: 0,
+};
+
+let zoomLevel = 1;
 let newFilter;
 let resetFilter;
 let resetZoom;
@@ -40,14 +45,14 @@ filterReset.addEventListener("click", () => {
 })
 // Function to Update the value of the Filters Options
 function updateFilters() {
-    newFilter = " brightness(" + brightness + "%) "
-        + " opacity(" + opacity + "%) "
-        + " contrast(" + contrast + "%) "
-        + " saturate(" + saturate + "%) "
-        + " grayscale(" + grayscale + "%) "
-        + " invert(" + invert + "%) "
-        + " sepia(" + sepia + "%) "
-        + " hue-rotate(" + hueRotate + "deg) ";
+    newFilter = " brightness(" + filters.brightness + "%) "
+        + " opacity(" + filters.opacity + "%) "
+        + " contrast(" + filters.contrast + "%) "
+        + " saturate(" + filters.saturate + "%) "
+        + " grayscale(" + filters.grayscale + "%) "
+        + " invert(" + filters.invert + "%) "
+        + " sepia(" + filters.sepia + "%) "
+        + " hue-rotate(" + filters.hueRotate + "deg) ";
     console.log(newFilter)
     video.style.filter = newFilter;
 }
@@ -63,70 +68,71 @@ function resetFilters() {
         + " hue-rotate(" + 0 + "deg) ";
     video.style.filter = resetFilter;
 
-    brightnessRange.value = 100 + "%";
+    brightnessRange.value = 100;
     brightnessValue.textContent = 100 + "%";
 
-    contrastRange.value = 100 + "%";
+    contrastRange.value = 100;
     contrastValue.textContent = 100 + "%";
 
-    opacityRange.value = 100 + "%";
+    opacityRange.value = 100;
     opacityValue.textContent = 100 + "%";
 
-    saturationRange.value = 100 + "%";
+    saturationRange.value = 100;
     saturateValue.textContent = 100 + "%";
 
-    grayscaleRange.value = 0 + "%";
+    grayscaleRange.value = 0;
     grayscaleValue.textContent = 0 + "%";
 
-    invertRange.value = 0 + "%";
+    invertRange.value = 0;
     invertValue.textContent = 0 + "%";
 
-    sepiaRange.value = 0 + "%";
+    sepiaRange.value = 0;
     sepiaValue.textContent = 0 + "%";
 
-    hueRange.value = 0 + "%";
+    hueRange.value = 0;
     hueValue.textContent = 0 + "%";
 }
 
 // Filters Value Updation
 brightnessRange.addEventListener("input", function () {
     brightnessValue.textContent = this.value + "%";
-    brightness = brightnessRange.value;
+    filters.brightness = brightnessRange.value;
+    // console.log(filters.brightness)
     updateFilters();
 });
 grayscaleRange.addEventListener("input", function () {
     grayscaleValue.textContent = this.value + "%";
-    grayscale = grayscaleRange.value;
+    filters.grayscale = grayscaleRange.value;
     updateFilters();
 });
 opacityRange.addEventListener("input", function () {
     opacityValue.textContent = this.value + "%";
-    opacity = opacityRange.value;
+    filters.opacity = opacityRange.value;
     updateFilters();
 });
 contrastRange.addEventListener("input", function () {
     contrastValue.textContent = this.value + "%";
-    contrast = contrastRange.value;
+    filters.contrast = contrastRange.value;
     updateFilters();
 });
 saturationRange.addEventListener("input", function () {
     saturateValue.textContent = this.value + "%";
-    grayscale = saturationRange.value;
+    filters.grayscale = saturationRange.value;
     updateFilters();
 });
 invertRange.addEventListener("input", function () {
     invertValue.textContent = this.value + "%";
-    invert = invertRange.value;
+    filters.invert = invertRange.value;
     updateFilters();
 });
 sepiaRange.addEventListener("input", function () {
     sepiaValue.textContent = this.value + "%";
-    sepia = sepiaRange.value;
+    filters.sepia = sepiaRange.value;
     updateFilters();
 });
 hueRange.addEventListener("input", function () {
     hueValue.textContent = this.value + "%";
-    hueRotate = hueRange.value;
+    filters.hueRotate = hueRange.value;
     updateFilters();
 });
 
@@ -135,7 +141,7 @@ settingOpenBtn.addEventListener("click", (e) => {
     openNav();
 });
 function openNav() {
-    document.getElementById("mySidenav").style.width = "350px";
+    document.getElementById("mySidenav").style.width = "450px";
 };
 settingCloseIcon.addEventListener("click", (e) => {
     closeNav();
@@ -194,5 +200,21 @@ timerCollapseBtn.addEventListener("click", (e) => {
         timerCollapseBtn.children[0].children[0].classList.add("active-arrow");
         arrowDown.style.display = "flex";
         arrowUp.style.display = "none";
+    }
+});
+
+// Zoom-IN and Zoom-OUT Functionality
+
+zoomIn.addEventListener("click", (e) =>{
+    if (zoomLevel < 3){
+        zoomLevel += 0.2;
+        video.style.transform = `scale(${zoomLevel})`
+    }
+});
+
+zoomOut.addEventListener("click", (e) =>{
+    if (zoomLevel > 1){
+        zoomLevel -= 0.2;
+        video.style.transform = `scale(${zoomLevel})`
     }
 });

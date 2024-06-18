@@ -43,165 +43,176 @@
                         <span class="setting-open-button bi bi-gear-fill"></span>
                         <div class="col-12 camera-setting">
                             <div id="mySidenav" class="sidenav row">
-                                <div class="col-12 setting-close-button"><i class="bi bi-x-lg setting-close-icon"></i>
-                                </div>
-                                <div class="col-12 setting-list">
-                                    <div class="row">
-                                        <div class="col-12 filters">
-                                            <div class="row filter-button">
-                                                <div class="col-12 filter-box-header">
-                                                    <div class="row filter-box-header-inner">
-                                                        <button class="col-12 btn btn-secondary filter-collapse-btn"
-                                                            type="button" data-bs-toggle="collapse"
-                                                            data-bs-target="#collapse-filter" aria-expanded="true"
-                                                            aria-controls="collapse-filter">
-                                                            <div class="filter-heading">
-                                                                <i class="bi bi-funnel-fill"></i>
-                                                                Filters
-                                                            </div>
-                                                            <div class="filter-buttons">
-                                                                <input class="filter-reset" type="reset" value="Reset">
-                                                                <i
-                                                                    class="bi bi-chevron-down filter-arrow-down arrow"></i>
-                                                                <i
-                                                                    class="bi bi-chevron-up filter-arrow-up active-arrow arrow"></i>
-                                                            </div>
-                                                        </button>
-                                                    </div>
-                                                    <div class="collapse show" id="collapse-filter">
-                                                        <div class="card card-body">
-                                                            <div class="none">
-                                                                <label for="brightness-range"
-                                                                    class="col-12 brightness-label all-filter-items">Brightness<input
-                                                                        type="range" class="brightness-range"
-                                                                        id="brightness-range" min="0" max="200"
-                                                                        step="10" value="100">
-                                                                </label>
-                                                                <div class="filter_value brightness-value">100%</div>
-                                                            </div>
-                                                            <div class="none">
-                                                                <label for="contrast-range"
-                                                                    class="col-12 contrast-label all-filter-items">Contrast<input
-                                                                        type="range" class="contrast-range"
-                                                                        id="contrast-range" min="0" max="200" step="10"
-                                                                        value="100">
-                                                                </label>
-                                                                <div class="filter_value contrast-value">100%</div>
-                                                            </div>
-                                                            <div class="none">
-                                                                <label for="saturation-range"
-                                                                    class="col-12 saturation-label all-filter-items">Saturation<input
-                                                                        type="range" class="saturation-range"
-                                                                        id="saturation-range" min="0" max="200"
-                                                                        step="10" value="100">
-                                                                </label>
-                                                                <div class="filter_value saturate-value">100%</div>
-                                                            </div>
-                                                            <div class="none">
-                                                                <label for="grayscale-range"
-                                                                    class="col-12 grayscale-label all-filter-items">Grayscale<input
-                                                                        type="range" class="grayscale-range"
-                                                                        id="grayscale-range" min="0" max="100" step="10"
-                                                                        value="0">
+                                <div class="side-nav-open">
+                                    <div class="col-12 setting-close-button"><i
+                                            class="bi bi-x-lg setting-close-icon"></i>
+                                    </div>
+                                    <div class="col-12 setting-list">
+                                        <div class="row p-0">
+                                            <div class="col-12 filters settings-options">
+                                                <div class="row filter-button">
+                                                    <div class="col-12 filter-box-header">
+                                                        <div class="row header-inner">
+                                                            <button class="col-12 btn btn-secondary filter-collapse-btn collapse-btn"
+                                                                type="button" data-bs-toggle="collapse"
+                                                                data-bs-target="#collapse-filter" aria-expanded="true"
+                                                                aria-controls="collapse-filter">
+                                                                <div class="filter-heading options-heading">
+                                                                    <i class="bi bi-funnel-fill"></i>
+                                                                    Filters
+                                                                </div>
+                                                                <div class="all-settings-inside-buttons">
+                                                                    <input class="filter-reset reset" type="reset"
+                                                                        value="Reset">
+                                                                    <i
+                                                                        class="bi bi-chevron-down filter-arrow-down arrow"></i>
+                                                                    <i
+                                                                        class="bi bi-chevron-up filter-arrow-up active-arrow arrow"></i>
+                                                                </div>
+                                                            </button>
+                                                        </div>
+                                                        <div class="collapse show" id="collapse-filter">
+                                                            <div class="card card-body">
+                                                                <div class="none">
+                                                                    <label for="brightness-range"
+                                                                        class="col-12 brightness-label all-filter-items">Brightness<input
+                                                                            type="range" class="brightness-range"
+                                                                            id="brightness-range" min="0" max="200"
+                                                                            step="10" value="100">
+                                                                    </label>
+                                                                    <div class="filter_value brightness-value">100%
+                                                                    </div>
+                                                                </div>
+                                                                <div class="none">
+                                                                    <label for="contrast-range"
+                                                                        class="col-12 contrast-label all-filter-items">Contrast<input
+                                                                            type="range" class="contrast-range"
+                                                                            id="contrast-range" min="0" max="200"
+                                                                            step="10" value="100">
+                                                                    </label>
+                                                                    <div class="filter_value contrast-value">100%</div>
+                                                                </div>
+                                                                <div class="none">
+                                                                    <label for="saturation-range"
+                                                                        class="col-12 saturation-label all-filter-items">Saturation<input
+                                                                            type="range" class="saturation-range"
+                                                                            id="saturation-range" min="0" max="200"
+                                                                            step="10" value="100">
+                                                                    </label>
+                                                                    <div class="filter_value saturate-value">100%</div>
+                                                                </div>
+                                                                <div class="none">
+                                                                    <label for="grayscale-range"
+                                                                        class="col-12 grayscale-label all-filter-items">Grayscale<input
+                                                                            type="range" class="grayscale-range"
+                                                                            id="grayscale-range" min="0" max="100"
+                                                                            step="10" value="0">
 
-                                                                </label>
-                                                                <div class="filter_value grayscale-value">0%</div>
+                                                                    </label>
+                                                                    <div class="filter_value grayscale-value">0%</div>
+                                                                </div>
+                                                                <div class="none">
+                                                                    <label for="invert-range"
+                                                                        class="col-12 invert-label all-filter-items">Invert<input
+                                                                            type="range" class="invert-range"
+                                                                            id="invert-range" min="0" max="100"
+                                                                            step="10" value="0">
+                                                                    </label>
+                                                                    <div class="filter_value invert-value">0%</div>
+                                                                </div>
+                                                                <div class="none">
+                                                                    <label for="sepia-range"
+                                                                        class="col-12 sepia-label all-filter-items">Sepia<input
+                                                                            type="range" class="sepia-range"
+                                                                            id="sepia-range" min="0" max="100" step="10"
+                                                                            value="0">
+                                                                    </label>
+                                                                    <div class="filter_value sepia-value">0%</div>
+                                                                </div>
+                                                                <div class="none">
+                                                                    <label for="hue-range"
+                                                                        class="col-12 hue-label all-filter-items">Hue<input
+                                                                            type="range" class="hue-range"
+                                                                            id="hue-range" min="0" max="360" step="90"
+                                                                            value="0">
+                                                                    </label>
+                                                                    <div class="filter_value hue-value">0%</div>
+                                                                </div>
+                                                                <div class="none">
+                                                                    <label for="opacity-range"
+                                                                        class="col-12 opacity-label all-filter-items">Opacity<input
+                                                                            type="range" class="opacity-range"
+                                                                            id="opacity-range" min="0" max="100"
+                                                                            step="10" value="100">
+                                                                    </label>
+                                                                    <div class="filter_value opacity-value">100%</div>
+                                                                </div>
                                                             </div>
-                                                            <div class="none">
-                                                                <label for="invert-range"
-                                                                    class="col-12 invert-label all-filter-items">Invert<input
-                                                                        type="range" class="invert-range"
-                                                                        id="invert-range" min="0" max="100" step="10"
-                                                                        value="0">
-                                                                </label>
-                                                                <div class="filter_value invert-value">0%</div>
-                                                            </div>
-                                                            <div class="none">
-                                                                <label for="sepia-range"
-                                                                    class="col-12 sepia-label all-filter-items">Sepia<input
-                                                                        type="range" class="sepia-range"
-                                                                        id="sepia-range" min="0" max="100" step="10"
-                                                                        value="0">
-                                                                </label>
-                                                                <div class="filter_value sepia-value">0%</div>
-                                                            </div>
-                                                            <div class="none">
-                                                            <label for="hue-range"
-                                                                class="col-12 hue-label all-filter-items">Hue<input
-                                                                    type="range" class="hue-range" id="hue-range"
-                                                                    min="0" max="360" step="90" value="0">
-                                                            </label>
-                                                            <div class="filter_value hue-value">0%</div>
-                                                        </div>
-                                                        <div class="none">
-                                                            <label for="opacity-range"
-                                                                class="col-12 opacity-label all-filter-items">Opacity<input
-                                                                    type="range" class="opacity-range"
-                                                                    id="opacity-range" min="0" max="100" step="10"
-                                                                    value="100">
-                                                            </label>
-                                                            <div class="filter_value opacity-value">100%</div>
-                                                        </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 zoom">
-                                            <div class="row zoom-button">
-                                                <div class="col-12 zoom-box-header">
-                                                    <div class="row zoom-box-header-inner">
-                                                        <button class="col-12 btn btn-secondary zoom-collapse-btn"
-                                                            type="button" data-bs-toggle="collapse"
-                                                            data-bs-target="#collapse-zoom" aria-expanded="false"
-                                                            aria-controls="collapse-zoom">
-                                                            <div class="zoom-heading">
-                                                                <i class="bi bi-arrows-fullscreen"></i>
-                                                                Zoom
-                                                            </div>
-                                                            <div class="zoom-buttons">
-                                                                <input class="zoom-reset" type="reset" value="Reset" data-bs-toggle="false">
-                                                                <i class="bi bi-chevron-down zoom-arrow-down arrow"></i>
-                                                                <i
-                                                                    class="bi bi-chevron-up zoom-arrow-up active-arrow arrow"></i>
-                                                            </div>
-                                                        </button>
-                                                    </div>
-                                                    <div class="collapse show" id="collapse-zoom">
-                                                        <div class="card card-body">
-                                                            <label for="zoom-range" class="col-12 zoom-label">Zoom<input
-                                                                    type="range" class="zoom-range" id="zoom-range"
-                                                                    min="0" max="100" value="0"></label>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12 timers">
-                                            <div class="row timer-button">
-                                                <div class="col-12 timer-box-header">
-                                                    <div class="row timer-box-header-inner">
-                                                        <button class="col-12 btn btn-secondary timer-collapse-btn"
-                                                            type="button" data-bs-toggle="collapse"
-                                                            data-bs-target="#collapse-timer" aria-expanded="false"
-                                                            aria-controls="collapse-timer">
-                                                            <div class="timer-heading">
-                                                                <i class="bi bi-stopwatch-fill"></i>
-                                                                Timer
+                                            <div class="col-12 zoom settings-options">
+                                                <div class="row zoom-button">
+                                                    <div class="col-12 zoom-box-header">
+                                                        <div class="row header-inner">
+                                                            <button class="col-12 btn btn-secondary zoom-collapse-btn collapse-btn"
+                                                                type="button" data-bs-toggle="collapse"
+                                                                data-bs-target="#collapse-zoom" aria-expanded="false"
+                                                                aria-controls="collapse-zoom">
+                                                                <div class="zoom-heading options-heading">
+                                                                    <i class="bi bi-arrows-fullscreen"></i>
+                                                                    Zoom
+                                                                </div>
+                                                                <div class="all-settings-inside-buttons">
+                                                                    <input class="zoom-reset reset" type="reset" value="Reset"
+                                                                        data-bs-toggle="false">
+                                                                    <i
+                                                                        class="bi bi-chevron-down zoom-arrow-down arrow"></i>
+                                                                    <i
+                                                                        class="bi bi-chevron-up zoom-arrow-up active-arrow arrow"></i>
+                                                                </div>
+                                                            </button>
+                                                        </div>
+                                                        <div class="collapse show" id="collapse-zoom">
+                                                            <div class="card card-body zoom-card">
+                                                                <div class="col-6 zoom-label"><i class="bi bi-zoom-in zoom-in"></i></div>
+                                                                <div class="col-6 zoom-label"><i class="bi bi-zoom-out zoom-out"></i></div>
                                                             </div>
-                                                            <div class="timer-buttons">
-                                                                <input class="timer-reset" type="reset" value="Reset">
-                                                                <i
-                                                                    class="bi bi-chevron-down timer-arrow-down active-arrow arrow"></i>
-                                                                <i class="bi bi-chevron-up timer-arrow-up arrow"></i>
-                                                            </div>
-                                                        </button>
+                                                        </div>
                                                     </div>
-                                                    <div class="collapse show" id="collapse-timer">
-                                                        <div class="card card-body timer-card">
-                                                            <div class="col-12 camera-click-timer" value="3">3 sec</div>
-                                                            <div class="col-12 camera-click-timer" value="5">5 sec</div>
-                                                            <div class="col-12 camera-click-timer" value="10">10 sec
+                                                </div>
+                                            </div>
+                                            <div class="col-12 timers settings-options">
+                                                <div class="row timer-button">
+                                                    <div class="col-12 timer-box-header">
+                                                        <div class="row header-inner">
+                                                            <button class="col-12 btn btn-secondary timer-collapse-btn collapse-btn"
+                                                                type="button" data-bs-toggle="collapse"
+                                                                data-bs-target="#collapse-timer" aria-expanded="false"
+                                                                aria-controls="collapse-timer">
+                                                                <div class="timer-heading options-heading">
+                                                                    <i class="bi bi-stopwatch-fill"></i>
+                                                                    Timer
+                                                                </div>
+                                                                <div class="all-settings-inside-buttons">
+                                                                    <input class="timer-reset reset" type="reset"
+                                                                        value="Reset">
+                                                                    <i
+                                                                        class="bi bi-chevron-down timer-arrow-down active-arrow arrow"></i>
+                                                                    <i
+                                                                        class="bi bi-chevron-up timer-arrow-up arrow"></i>
+                                                                </div>
+                                                            </button>
+                                                        </div>
+                                                        <div class="collapse show" id="collapse-timer">
+                                                            <div class="card card-body timer-card">
+                                                                <div class="col-4 camera-click-timer" value="3"><i class="bi bi-3-circle-fill"></i>
+                                                                </div>
+                                                                <div class="col-4 camera-click-timer" value="5"><i class="bi bi-5-circle-fill"></i>
+                                                                </div>
+                                                                <div class="col-4 camera-click-timer" value="10"><i class="bi bi-9-circle-fill"></i>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -245,6 +256,7 @@
                     </div>
                 </div>
             </div>
+            <div class="col-12 bottom-container"></div>
         </div>
     </div>
 
