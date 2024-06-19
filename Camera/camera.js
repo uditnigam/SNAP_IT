@@ -16,6 +16,7 @@ const settingCloseIcon = document.querySelector(".setting-close-icon");
 
 const video = document.querySelector(".video");
 
+let zoomLevel = 1;
 let cameraTimer = 0;
 let data = [];
 let videoTimer = 0;
@@ -103,8 +104,9 @@ function captureImage() {
     })
     cameraCaptureBtn.classList.add("activeBtn");
     tool.filter = newFilter;
-    let x = (canvas.width - canvas.width) / 2;
-    let y = (canvas.width - canvas.height) / 2;
+    tool.scale(zoomLevel,zoomLevel);
+    let x = (canvas.width/zoomLevel - canvas.width) / 2;
+    let y = (canvas.width/zoomLevel - canvas.height) / 2;
     tool.drawImage(video, x, y);
 
     createDataUrl("camera", canvas);

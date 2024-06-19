@@ -33,7 +33,6 @@ const filters = {
     hueRotate: 0,
 };
 
-let zoomLevel = 1;
 let newFilter;
 let resetFilter;
 let resetZoom;
