@@ -7,28 +7,28 @@
 /*********** Loading Icon *********/
 html,
 body {
-	padding: 0;
-	margin: 0;
-	position: relative;
-	background: url("https://images.unsplash.com/photo-1569973560851-8c4563f4c3c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80")
-		no-repeat center center;
-	background-size: cover;
-	height: 100vh;
-	font-family: "Raleway", sans-serif;
-	overflow-y: hidden;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    background: url("https://images.unsplash.com/photo-1569973560851-8c4563f4c3c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80") no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    font-family: "Raleway", sans-serif;
+    overflow-y: hidden;
 }
 
 
 /* PRELOADER CSS */
-.page-loader{
-	width: 100%;
-	height: 100vh;
-	position: absolute;
-	background: #272727;
-	z-index: 1000;
-	
+.page-loader {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: #272727;
+    z-index: 1000;
+
 }
-.page-loader .txt{
+
+.page-loader .txt {
     color: #666;
     text-align: center;
     top: 40%;
@@ -38,37 +38,43 @@ body {
     font-weight: bold;
     line-height: 1.5;
 }
+
 /* SPINNER ANIMATION */
 .spinner {
-	position: relative;
-	top: 35%;
-  width: 80px;
-  height: 80px;
-  margin: 0 auto;
-  background-color: #fff;
+    position: relative;
+    top: 35%;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background-color: #fff;
 
-  border-radius: 100%;  
-  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
-  animation: sk-scaleout 1.0s infinite ease-in-out;
+    border-radius: 100%;
+    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+    animation: sk-scaleout 1.0s infinite ease-in-out;
 }
 
 @-webkit-keyframes sk-scaleout {
-  0% { -webkit-transform: scale(0) }
-  100% {
-    -webkit-transform: scale(1.0);
-    opacity: 0;
-  }
+    0% {
+        -webkit-transform: scale(0)
+    }
+
+    100% {
+        -webkit-transform: scale(1.0);
+        opacity: 0;
+    }
 }
 
 @keyframes sk-scaleout {
-  0% { 
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  } 100% {
-    -webkit-transform: scale(1.0);
-    transform: scale(1.0);
-    opacity: 0;
-  }
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
+    100% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+        opacity: 0;
+    }
 }
 
 /**************** MAIN CONTAINER ******************/
@@ -125,7 +131,8 @@ body {
     justify-content: center;
     flex-direction: column;
 }
-.top-buttons{
+
+.top-buttons {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -143,26 +150,14 @@ body {
     gap: 18px;
 }
 
-.image-checkbox{
-    /* color: #5F5D64; */
-    width: 100%;
-    height: 100%;
-    background-color: yellow;
+.cross {
+    font-size: 25px;
+    cursor: pointer;
 }
 
 .download-button {
     font-size: 25px;
     cursor: pointer;
-}
-
-.cross {
-    font-size: 25px;
-    cursor: pointer;
-}
-.image-checkbox{
-    cursor: pointer;
-    height: 25px;
-    width: 25px;
 }
 
 .image {
@@ -182,6 +177,7 @@ body {
     justify-content: center;
     overflow: hidden;
 }
+
 .screen {
     height: 320px;
     width: 350px;
@@ -237,7 +233,7 @@ body {
     font-size: 30px;
 }
 
-.tools{
+.tools {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -245,16 +241,6 @@ body {
     margin: 0px;
     height: 100%;
     width: 50px;
-}
-
-.delete-all-button{
-    display: none;
-    cursor: pointer;
-}
-
-.download-all-button{
-    display: none;
-    cursor: pointer;
 }
 
 .searchIcon {
@@ -278,24 +264,27 @@ body {
     top: 100px;
     right: 300px;
 }
-.sort-icon{
+
+.sort-icon {
     background-color: rgb(66, 84, 84);
     border: none;
     font-size: 30px;
 
 }
-.filter-icon{
+
+.filter-icon {
     background-color: rgb(66, 84, 84);
     border: none;
     font-size: 40px;
 }
 
-.dropdown-menu{
-    margin: 5px!important;
-    background-color: rgb(239, 227, 227);
-
+.dropdown-menu {
+    margin: 5px !important;
+    background-color: #202c33;
+    color: #eee0e0;
 }
-.dropdown-menu >* {
+
+.dropdown-menu>* {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -303,14 +292,25 @@ body {
     margin: 0px;
 }
 
-.dropdown-divider{
+.dropdown-divider {
     background-color: grey;
     height: 2px;
     width: 100%;
 }
 
-.header-main-checkbox{
+.header-main-checkbox {
     background-color: rgb(139, 185, 185);
     height: 30px;
     width: 100%;
+}
+
+.three-dots-icon {
+    background-color: rgb(66, 84, 84);
+    border: none;
+    font-size: 40px;
+}
+
+.delete-all-data {
+    cursor: pointer;
+    color: wheat;
 }

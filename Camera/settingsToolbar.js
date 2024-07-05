@@ -22,6 +22,8 @@ const timerReset = document.querySelector(".timer-reset");
 const zoomIn = document.querySelector(".zoom-in");
 const zoomOut = document.querySelector(".zoom-out");
 
+const cameraClickTimer = document.querySelectorAll(".camera-click-timer");
+
 const filters = {
     brightness: 100,
     contrast: 100,
@@ -160,15 +162,20 @@ filterCollapseBtn.addEventListener("click", (e) => {
     const arrowDown = document.querySelector(".filter-arrow-down");
     const arrowUp = document.querySelector(".filter-arrow-up");
     const activeArrow = filterCollapseBtn.children[0].children[0].classList.contains("active-arrow");
-    if (activeArrow) {
-        filterCollapseBtn.children[0].children[0].classList.remove("active-arrow");
-        arrowDown.style.display = "none";
-        arrowUp.style.display = "flex";
-    } else {
-        filterCollapseBtn.children[0].children[0].classList.add("active-arrow");
-        arrowDown.style.display = "flex";
-        arrowUp.style.display = "none";
-    }
+    // console.log(e.target.classList.contains("reset"))
+    // if (e.target.classList.contains("reset")) {
+    //     console.log(filterCollapseBtn.parentElement.parentElement.children[1].classList)
+    // } else {
+        if (activeArrow) {
+            filterCollapseBtn.children[0].children[0].classList.remove("active-arrow");
+            arrowDown.style.display = "none";
+            arrowUp.style.display = "flex";
+        } else {
+            filterCollapseBtn.children[0].children[0].classList.add("active-arrow");
+            arrowDown.style.display = "flex";
+            arrowUp.style.display = "none";
+        }
+    // }
 });
 const zoomCollapseBtn = document.querySelector(".zoom-collapse-btn");
 zoomCollapseBtn.addEventListener("click", (e) => {
@@ -203,17 +210,37 @@ timerCollapseBtn.addEventListener("click", (e) => {
 });
 
 // Zoom-IN and Zoom-OUT Functionality
-
-zoomIn.addEventListener("click", (e) =>{
-    if (zoomLevel < 3){
+zoomIn.addEventListener("click", (e) => {
+    if (zoomLevel < 3) {
         zoomLevel += 0.2;
-        video.style.transform = `scale(${zoomLevel})`
+        video.style.transform = `scale(${zoomLevel})`;
     }
 });
 
-zoomOut.addEventListener("click", (e) =>{
-    if (zoomLevel > 1){
+zoomOut.addEventListener("click", (e) => {
+    if (zoomLevel > 1) {
         zoomLevel -= 0.2;
-        video.style.transform = `scale(${zoomLevel})`
+        video.style.transform = `scale(${zoomLevel})`;
     }
 });
+zoomReset.addEventListener("click", (e) =>{
+    zoomLevel = 1;
+    video.style.transform = `scale(${zoomLevel})`;
+})
+
+cameraClickTimer.forEach((e) => {
+    // console.log(e)
+    e.addEventListener("click", (event) => {
+        // timerActive.style.display = "none";
+        // console.log(event.target.parentElement.getAttribute("value"))
+        cameraTimer = Number(event.target.parentElement.getAttribute("value"));
+        // console.log(cameraTimer)
+    })
+});
+
+timerReset.addEventListener("click", (e) =>{
+    cameraTimer = 0;
+})
+
+// timerActive = document.querySelector(".timer-active");
+// timerActive.style.display = "none";

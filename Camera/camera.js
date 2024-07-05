@@ -46,7 +46,6 @@ navigator.mediaDevices.getUserMedia(constraints)
     .then((stream) => {
         // const audioTrack = stream.getAudioTracks();
         video.srcObject = stream;
-
         recorder = new MediaRecorder(stream);
         recorder.ondataavailable = (event) => data.push(event.data);
         recorder.addEventListener("stop", function () {
@@ -57,13 +56,6 @@ navigator.mediaDevices.getUserMedia(constraints)
         console.log(error)
     });
 
-const cameraClickTimer = document.querySelectorAll(".camera-click-timer");
-cameraClickTimer.forEach((e) => {
-    e.addEventListener("click", (event) => {
-        cameraTimer = Number(event.target.getAttribute("value"));
-        console.log(cameraTimer)
-    })
-})
 cameraCaptureBtn.addEventListener("click", (e) => {
     if(cameraTimer > 0){
         setTimeout(function () {
@@ -77,8 +69,6 @@ cameraCaptureBtn.addEventListener("click", (e) => {
         console.log("0")
     }
     timerCont.innerHTML='';
-
-
 });
 //Function Countdown Timer 
 function countdownTimer() {

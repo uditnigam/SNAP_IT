@@ -35,8 +35,6 @@
                 <div class="row tools-inner-container">
                     <div class="col gallery-data-info">
                     </div>
-                    <div class="col-1 delete-all-button tools"><i class="bi bi-trash-fill"></i></div>
-                    <div class="col-1 download-all-button tools"><i class="bi bi-download"></i></div>
                     <div class="col-2 search-here tools">
                         <button class="searchIcon bi bi-search"></button>
                         <input type="text" placeholder="Search..." class="searchInput">
@@ -106,9 +104,13 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-1 header-checkbox tools">
-                        <input class="header-main-checkbox" type="checkbox">
-                    </div>
+                    <div class="col-1 dropdown tools">
+                        <button class="bi bi-three-dots-vertical three-dots-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li class="delete-all-data">Delete All</li>
+                        </ul>
+                      </div>
                 </div>
 
             </div>

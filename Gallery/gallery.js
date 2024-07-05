@@ -5,48 +5,17 @@ const galleryFilter = document.querySelector(".filter-btn-group");
 const gallerySorting = document.querySelector(".sort-btn-group");
 const loader = document.querySelector(".page-loader");
 const galleryContainer = document.querySelector(".gallery-container");
-const deleteAllButton = document.querySelector(".delete-all-button");
-const downloadAllButton = document.querySelector(".download-all-button");
-const galleryCheckbox = document.querySelector(".header-main-checkbox");
+const deleteAllData = document.querySelector(".delete-all-data");
+
 let imgVar = 0;
 let videoVar = 0;
 let screenVar = 0;
 let input = false;
 
-galleryCheckbox.addEventListener("click", (e) => {
-    const allImageCheckbox = document.querySelectorAll(".image-checkbox");
-    allImageCheckbox.forEach((ele) => {
-        if (e.target.checked) {
-            // console.log("checked");
-            deleteAllButton.style.display = "flex";
-            downloadAllButton.style.display = "flex";
-            ele.checked = true;
-            downloadAllData(ele);
-            deleteAllData(ele);
-        } else {
-            // console.log("unchecked");
-            deleteAllButton.style.display = "none";
-            downloadAllButton.style.display = "none";
-            ele.checked = false;
-        }
-    })
-})
-// Function to download all the data of the gallery container on selecting the all checkboxes
-function downloadAllData(ele) {
-    downloadAllButton.addEventListener("click", (e) => {
-        const name = ele.parentElement.parentElement.parentElement.children[2].children[0].innerText;
-        const target = ele.parentElement.parentElement.parentElement.children[1];
-        downloadMedia(target, name);
-    })
-};
-// Function to delete all the data of the gallery container on selecting the all checkboxes
-function deleteAllData(ele){
-    deleteAllButton.addEventListener("click", (e) => {
-        galleryContainer.innerText = ""
-        const uid = Number(ele.parentElement.parentElement.parentElement.getAttribute("uid"));
-        deleteMedia(uid);
-    })
-};
+// To show the dropdown
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
 
 galleryPageBackBtn.addEventListener("click", (e) => {
     window.location.href = "/homepage.html";
@@ -77,9 +46,6 @@ function mediaContainerOfGallery(id, type, link, date, name) {
                 <div class="top-left-buttons">
                     <i class="bi bi-x-circle-fill cross"></i>
                     <i class="bi bi-file-arrow-down-fill download-button"></i>
-                </div>
-                <div class="top-right-buttons">
-                    <input class="image-checkbox" type="checkbox">
                 </div>
             </div>
             <img class="image" src="${link}" name="${name}"></img>
@@ -166,19 +132,6 @@ function downloadMedia(event, mediaName) {
     mediaLink.remove();
 };
 
-function galleryDataInformation() {
-    const galleryDataInfo = document.querySelector(".gallery-data-info");
-    galleryData.forEach((e) => {
-        if (e.type === "img") {
-            imgVar++;
-        } else if (e.type === "video") {
-            videoVar++;
-        } else {
-            screenVar++;
-        }
-    })
-    galleryDataInfo.innerText = `${imgVar} photos, ${videoVar} videos, ${screenVar} screen-recording`;
-};
 
 //Functionality of Search Bar in Gallery to search any item with its name
 searchIcon.addEventListener("click", (e) => {
@@ -200,7 +153,8 @@ searchIcon.addEventListener("click", (e) => {
 
 searchInput.addEventListener("keyup", (e) => {
     const mediaContainer = document.querySelectorAll(".media-container");
-    let query = e.target.value;
+    let query = e.target.value.toLowerCase();
+    // console.log(query)
     if (mediaContainer) {
         if (query.trim() === "") {
             mediaContainer.forEach((elem) => {
@@ -209,7 +163,7 @@ searchInput.addEventListener("keyup", (e) => {
         }
         else {
             mediaContainer.forEach((elem) => {
-                if (query.trim() && elem.children[1].getAttribute("name").includes(query)) {
+                if (query.trim() && elem.children[1].getAttribute("name").toLowerCase().includes(query)) {
                     elem.style.display = "flex";
                 } else {
                     elem.style.display = "none";
@@ -304,3 +258,31 @@ function selectionSort(arr, method, order) {
     // arr.slice(0,5)
     // console.log(arr);
 }
+// setInterval(galleryDataInformation, 1000);
+
+function galleryDataInformation() {
+    const galleryDataInfo = document.querySelector(".gallery-data-info");
+    galleryData.forEach((e) => {
+        // console.log(e)
+        if (e.type === "img") {
+            imgVar++;
+        } else if (e.type === "video") {
+            videoVar++;
+        } else {
+            screenVar++;
+        }
+    })
+    galleryDataInfo.innerText = `${imgVar} photos, ${videoVar} videos, ${screenVar} screen-recording`;
+};
+
+deleteAllData.addEventListener("click", (e) => {
+    galleryData.forEach((ele) => {
+        const uid = ele.uid;
+        deleteMedia(uid);
+        galleryContainer.innerHTML = "";
+        console.log(galleryData)
+    })
+    console.log(galleryData)
+    // galleryDataInformation();
+});
+console.log(galleryData)
