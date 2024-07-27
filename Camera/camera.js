@@ -34,7 +34,7 @@ const videoState = {
 
 //ON CLICK OF BACK BUTTON ON CAMERA PAGE, PAGE NAVIGATES TO THE HOMEPAGE
 cameraPageBackBtn.addEventListener("click", (e) => {
-    window.location.href = "/homepage.html";
+    window.location.href = "/index.html";
 });
 //ON CLICK OF GALLERY OPEN BUTTON ON CAMERA PAGE, PAGE NAVIGATES TO THE GALLERY
 galleryOpenButton.addEventListener("click", (e) => {
