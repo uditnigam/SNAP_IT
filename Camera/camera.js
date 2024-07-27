@@ -57,18 +57,18 @@ navigator.mediaDevices.getUserMedia(constraints)
     });
 
 cameraCaptureBtn.addEventListener("click", (e) => {
-    if(cameraTimer > 0){
+    if (cameraTimer > 0) {
         setTimeout(function () {
             captureImage();
             cameraTimer = 0;
-        }, (cameraTimer+1)*1000);
+        }, (cameraTimer + 1) * 1000);
         countdownTimer();
     }
     else {
         captureImage();
         console.log("0")
     }
-    timerCont.innerHTML='';
+    timerCont.innerHTML = '';
 });
 //Function Countdown Timer 
 function countdownTimer() {
@@ -94,9 +94,9 @@ function captureImage() {
     })
     cameraCaptureBtn.classList.add("activeBtn");
     tool.filter = newFilter;
-    tool.scale(zoomLevel,zoomLevel);
-    let x = (canvas.width/zoomLevel - canvas.width) / 2;
-    let y = (canvas.width/zoomLevel - canvas.height) / 2;
+    tool.scale(zoomLevel, zoomLevel);
+    let x = (canvas.width / zoomLevel - canvas.width) / 2;
+    let y = (canvas.width / zoomLevel - canvas.height) / 2;
     tool.drawImage(video, x, y);
 
     createDataUrl("camera", canvas);
@@ -112,18 +112,18 @@ videoRecordBtn.addEventListener("click", (e) => {
         countdownTimer();
     } else if (cameraTimer == 5) {
         setTimeout(function () {
-            videoRecording() ;
+            videoRecording();
             console.log("5")
         }, 6000);
         countdownTimer();
     } else if (cameraTimer == 10) {
         setTimeout(function () {
-            videoRecording() ;
+            videoRecording();
             console.log("10")
         }, 11000);
         countdownTimer();
     } else {
-        videoRecording() ;
+        videoRecording();
         console.log("0")
     }
 });
@@ -239,7 +239,7 @@ function createDataUrl(type, canvas) {
     }
 };
 
-//Function to Get Date
+//Function to Get the current Date
 function currentDate() {
     const date = new Date();
     const str = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();

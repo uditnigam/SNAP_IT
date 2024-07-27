@@ -58,13 +58,15 @@ function mediaContainerOfGallery(id, type, link, date, name) {
             mediaContainer.classList.add("screen") :
             mediaContainer.classList.add("video");
         mediaContainer.innerHTML = `
-            <div class="top-buttons">
+        <div class="top-buttons">
+            <div class="top-left-buttons">
                 <i class="bi bi-x-circle-fill cross"></i>
                 <i class="bi bi-file-arrow-down-fill download-button"></i>
             </div>
-            <video class="video"></video>
+        </div>
+            <video class="video" name="${name}"></video>
             <div class="card-button">
-                <div class="media-name" contenteditable="false">${name}</div>
+                <div class="media-name">${name}</div>
                 <i class="bi bi-pencil-fill edit-button"></i>
             </div>`;
         const videoDisplayCont = mediaContainer.querySelector(".video");
@@ -103,12 +105,12 @@ function editName(mediaName, event) {
     const uid = Number(event.target.parentNode.parentNode.getAttribute("uid"));
     mediaName.contentEditable = "true";
     mediaName.focus();
-    mediaName.addEventListener("blur", (e) => {
-        const name = e.target.innerText;
-        mediaName.innerText = name;
-        updateData(mediaName.innerText, uid);
-        mediaName.contentEditable = "false";
-    })
+    // mediaName.addEventListener("blur", (e) => {
+    //     const name = e.target.innerText;
+    //     mediaName.innerText = name;
+    //     updateData(mediaName.innerText, uid);
+    //     mediaName.contentEditable = "false";
+    // })
     mediaName.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
             const name = e.target.innerText;
@@ -163,6 +165,7 @@ searchInput.addEventListener("keyup", (e) => {
         }
         else {
             mediaContainer.forEach((elem) => {
+                console.log(elem.children[1])
                 if (query.trim() && elem.children[1].getAttribute("name").toLowerCase().includes(query)) {
                     elem.style.display = "flex";
                 } else {
@@ -285,4 +288,3 @@ deleteAllData.addEventListener("click", (e) => {
     console.log(galleryData)
     // galleryDataInformation();
 });
-console.log(galleryData)

@@ -170,7 +170,7 @@ body {
 }
 
 .video {
-    height: 320px;
+    height: 350px;
     width: 350px;
     display: flex;
     align-items: center;
@@ -179,7 +179,7 @@ body {
 }
 
 .screen {
-    height: 320px;
+    height: 350px;
     width: 350px;
     display: flex;
     align-items: center;
@@ -261,7 +261,7 @@ body {
     border: 1px solid black;
     color: #e1d0d0;
     position: absolute;
-    top: 100px;
+    top: 120px;
     right: 300px;
 }
 
