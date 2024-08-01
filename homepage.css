@@ -8,7 +8,7 @@
 .main-container {
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .left-container {
@@ -79,7 +79,7 @@
     -webkit-background-clip: text;
 }
 
-.horizontal-line{
+.horizontal-line {
     color: #048EB5;
     position: relative;
     bottom: 10px;
@@ -89,7 +89,7 @@
     padding: 0px;
 }
 
-.line-circle{
+.line-circle {
     background-color: #048EB5;
     position: relative;
     bottom: 16px;
@@ -110,7 +110,7 @@
 }
 
 
-.all-buttons{
+.all-buttons {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -134,7 +134,7 @@
     padding: 0px;
 }
 
-.right-container-main{
+.right-container-main {
     display: flex;
     gap: 20px;
     padding: 0px;
@@ -159,6 +159,7 @@
     padding-left: 30px;
     gap: 15px;
 }
+
 .right-container-gallery-btn {
     height: 50px;
     width: 250px;

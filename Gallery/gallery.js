@@ -258,8 +258,6 @@ function selectionSort(arr, method, order) {
             arr[min_max] = temp;
         }
     }
-    // arr.slice(0,5)
-    // console.log(arr);
 }
 // setInterval(galleryDataInformation, 1000);
 
