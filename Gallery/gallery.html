@@ -22,10 +22,13 @@
         <div class="row main-container">
             <div class="col-12 header-container">
                 <div class="row inner-top-container d-flex align-items-center">
-                    <div class="col-1"><button type="button" class="gallery-container-back-btn">
-                            < </button>
+                    <div class="col-1 gallery-container-back-btn">
+                        <i class="back-button-icon bi bi-chevron-left"></i>
                     </div>
-                    <div class="col-1 gallery-heading">Gallery</div>
+                    <div class="col gallery-heading">
+                        <i class="bi bi-image gallery-icon"></i>
+                        Gallery
+                    </div>
                 </div>
             </div>
             <div class="col-12 tools-container">
@@ -37,10 +40,12 @@
                     </div>
                     <div class="col-2 search-here tools">
                         <button class="searchIcon bi bi-search"></button>
-                        <input type="text" placeholder="Search..." class="searchInput">
+                        <hr class="solid">
+                        <!-- <br> -->
+                        <input type="text" placeholder="Search your files..." class="searchInput">
                     </div>
                     <div class="col-1 sort-here tools">
-                        <button class="sort-icon bi bi-arrow-down-up" type="button" data-bs-toggle="dropdown"
+                        <button class="sort-icon bi bi-filter-left" type="button" data-bs-toggle="dropdown"
                             data-bs-auto-close="outside" aria-expanded="false">
                         </button>
                         <div class="sort-btn-group">
@@ -75,7 +80,7 @@
                         </div>
                     </div>
                     <div class="col-1 filter-here tools">
-                        <button type="button" class="filter-icon bi bi-filter" data-bs-toggle="dropdown"
+                        <button type="button" class="filter-icon bi bi-funnel" data-bs-toggle="dropdown"
                             data-bs-auto-close="outside" aria-expanded="false">
                         </button>
                         <div class="filter-btn-group">
@@ -83,7 +88,8 @@
                                 <li>
                                     <input type="radio" class="btn-check" name="filterRadio" id="all" autocomplete="off"
                                         checked>
-                                    <label class="btn btn-outline-primary" value="All" for="all">All</label>
+                                    <label class="btn btn-outline-primary" value="All" for="all">
+                                        All</label>
                                 </li>
                                 <li>
                                     <input type="radio" class="btn-check" name="filterRadio" id="image"

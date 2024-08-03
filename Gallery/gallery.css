@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: "Tilt Neon", sans-serif;
+    font-family: "Lexend Deca", sans-serif;
 }
 
 /*********** Loading Icon *********/
@@ -81,35 +81,47 @@ body {
 
 .main-container {
     height: 100vh;
-    background-color: red;
+    background-color: #181819;
+    color: #BEC7CC;
 }
 
 .header-container {
-    background-color: rgb(0, 0, 0);
-    height: 10%;
+    /* background-color: #181819; */
+    height: 4%;
 }
 
 .inner-top-container {
-    color: wheat;
-    background-color: rgb(0, 0, 0);
     height: 100%;
 }
 
 .gallery-container-back-btn {
-    border: none;
-    color: wheat;
-    background-color: rgb(0, 0, 0);
-    width: 40px;
-    font-size: 30px;
+    height: 100%;
+    width: 3%;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+.back-button-icon {
+    color: #8e8e93;
+    cursor: pointer;
 }
 
 .gallery-heading {
-    font-size: 25px;
+    font-size: 15px;
+    color: rgba(189, 199, 204, 1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .gallery-container {
-    background-color: rgb(66, 84, 84);
-    height: 82%;
+    /* background-color: #181819; */
+    height: 77%;
     display: flex;
     gap: 90px;
     flex-wrap: wrap;
@@ -138,7 +150,6 @@ body {
     align-items: center;
     width: 100%;
     padding: 15px 15px 0px 15px;
-    /* height: 0%; */
 }
 
 .top-left-buttons {
@@ -161,8 +172,8 @@ body {
 }
 
 .image {
-    height: 350px;
-    width: 350px;
+    height: 300px;
+    width: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -170,8 +181,8 @@ body {
 }
 
 .video {
-    height: 350px;
-    width: 350px;
+    height: 300px;
+    width: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -179,8 +190,8 @@ body {
 }
 
 .screen {
-    height: 350px;
-    width: 350px;
+    height: 300px;
+    width: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -188,14 +199,14 @@ body {
 }
 
 .card-button {
-    width: 350px;
+    width: 300px;
     height: 70px;
     color: #5F5D64;
     display: flex;
     align-items: center;
     padding: 0px 20px;
     justify-content: space-between;
-    gap: 30px;
+    gap: 10px;
     overflow: hidden;
 }
 
@@ -212,24 +223,39 @@ body {
 
 /********************* TOOLS CONTAINER ***************/
 
+.gallery-data-info {
+    /* display: flex; */
+    align-items: center;
+    flex-direction: column;
+    /* gap: 30px; */
+    font-size: 13px;
+
+}
+
+.data-info-header {
+    display: flex;
+    gap: 10px;
+    font-size: 28px;
+}
+
 .tools-container {
-    height: 8%;
+    height: 18%;
     width: 100%;
-    padding: 0px;
+    padding-top: 40px;
+    color: #BEC7CC;
 }
 
 .tools-inner-container {
     height: 100%;
-    background-color: rgb(66, 84, 84);
-    display: flex;
+    /* background-color: #181819; */
     align-items: center;
     justify-content: center;
     width: 100%;
     margin: 0px;
     gap: 10px;
-    padding-right: 70px;
-    padding-left: 20px;
-    border: 1px solid;
+    padding-right: 30px;
+    padding-left: 5px;
+    /* border: 1px solid; */
     font-size: 30px;
 }
 
@@ -242,54 +268,67 @@ body {
     height: 100%;
     width: 50px;
 }
-
-.searchIcon {
-    background-color: rgb(66, 84, 84);
-    border: none;
-    font-size: 30px;
+.search-here {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    height: 50px;
+    width: 450px;
+    background-color: #1E1E1F;
+    border-radius: 50px;
+}
+.camera-icon {
+    font-size: 25px;
 }
 
+.searchIcon {
+    background-color:#1E1E1F;
+    color: #BEC7CC;
+    border: none;
+    font-size: 25px;
+}
+.solid {
+    height: 14px;
+    border: 1px solid #bbb;
+  }
 .searchInput {
     height: 38px;
     width: 350px;
+    background-color: #1E1E1F;
+    border: none;
     font-size: 17px;
-    padding-left: 15px;
-    border-radius: 5px;
-    display: none;
+    color: #BEC7CC;
     outline: none;
-    background-color: rgb(66, 84, 84);
-    border: 1px solid black;
-    color: #e1d0d0;
-    position: absolute;
-    top: 120px;
-    right: 300px;
+    cursor: pointer;
 }
 
 .sort-icon {
-    background-color: rgb(66, 84, 84);
+    background-color: #181819;
+    color: #BEC7CC;
     border: none;
-    font-size: 30px;
-
+    font-size: 35px;
 }
 
 .filter-icon {
-    background-color: rgb(66, 84, 84);
+    background-color: #181819;
+    color: #BEC7CC;
     border: none;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .dropdown-menu {
     margin: 5px !important;
-    background-color: #202c33;
-    color: #eee0e0;
+    background-color: #1E1E1F;
+    color: #BEC7CC;
 }
 
 .dropdown-menu>* {
     display: flex;
-    justify-content: center;
     align-items: center;
     padding: 5px;
     margin: 0px;
+    color: #BEC7CC;
 }
 
 .dropdown-divider {
@@ -299,18 +338,21 @@ body {
 }
 
 .header-main-checkbox {
-    background-color: rgb(139, 185, 185);
     height: 30px;
     width: 100%;
 }
 
 .three-dots-icon {
-    background-color: rgb(66, 84, 84);
+    background-color: #181819;
+    color: #BEC7CC;
     border: none;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .delete-all-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    color: wheat;
+    color: #BEC7CC;
 }

@@ -6,6 +6,8 @@ const gallerySorting = document.querySelector(".sort-btn-group");
 const loader = document.querySelector(".page-loader");
 const galleryContainer = document.querySelector(".gallery-container");
 const deleteAllData = document.querySelector(".delete-all-data");
+const galleryDataInfo = document.querySelector(".gallery-data-info");
+
 
 let imgVar = 0;
 let videoVar = 0;
@@ -136,22 +138,22 @@ function downloadMedia(event, mediaName) {
 
 
 //Functionality of Search Bar in Gallery to search any item with its name
-searchIcon.addEventListener("click", (e) => {
-    const mediaContainer = document.querySelectorAll(".media-container");
-    if (input) {
-        mediaContainer.forEach((e) => {
-            e.style.display = "flex"
-            searchInput.style.display = "none";
-            searchInput.value = "";
-        })
-        input = !input;
-    }
-    else {
-        searchInput.style.display = "flex";
-        input = !input;
-        searchInput.focus();
-    }
-});
+// searchIcon.addEventListener("click", (e) => {
+//     const mediaContainer = document.querySelectorAll(".media-container");
+//     if (input) {
+//         mediaContainer.forEach((e) => {
+//             e.style.display = "flex"
+//             searchInput.style.display = "none";
+//             searchInput.value = "";
+//         })
+//         input = !input;
+//     }
+//     else {
+//         searchInput.style.display = "flex";
+//         input = !input;
+//         searchInput.focus();
+//     }
+// });
 
 searchInput.addEventListener("keyup", (e) => {
     const mediaContainer = document.querySelectorAll(".media-container");
@@ -165,7 +167,7 @@ searchInput.addEventListener("keyup", (e) => {
         }
         else {
             mediaContainer.forEach((elem) => {
-                console.log(elem.children[1])
+                // console.log(elem.children[1])
                 if (query.trim() && elem.children[1].getAttribute("name").toLowerCase().includes(query)) {
                     elem.style.display = "flex";
                 } else {
@@ -181,7 +183,6 @@ window.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
         mediaContainer.forEach((e) => {
             e.style.display = "flex"
-            searchInput.style.display = "none";
             searchInput.value = "";
             input = false;
         })
@@ -196,11 +197,20 @@ galleryFilter.addEventListener("change", (e) => {
         if (filterValue === "all") {
             mediaContainer.forEach((e) => {
                 e.style.display = "flex";
+                galleryDataInformation();
             })
         }
         else {
             mediaContainer.forEach((e) => {
                 if (filterValue === e.classList[1]) {
+                    console.log(e.classList[1].includes("image"));
+                    if (e.classList[1].includes("image")) {
+                        galleryDataInfo.innerText = `${imgVar}`;
+                    } else if (e.classList[1].includes("video")) {
+                        galleryDataInfo.innerText = `${videoVar}`;
+                    } else if (e.classList[1].includes("screen")) {
+                        galleryDataInfo.innerText = `${screenVar}`;
+                    }
                     e.style.display = "flex";
                 } else {
                     e.style.display = "none";
@@ -262,9 +272,7 @@ function selectionSort(arr, method, order) {
 // setInterval(galleryDataInformation, 1000);
 
 function galleryDataInformation() {
-    const galleryDataInfo = document.querySelector(".gallery-data-info");
     galleryData.forEach((e) => {
-        // console.log(e)
         if (e.type === "img") {
             imgVar++;
         } else if (e.type === "video") {
@@ -273,7 +281,10 @@ function galleryDataInformation() {
             screenVar++;
         }
     })
-    galleryDataInfo.innerText = `${imgVar} photos, ${videoVar} videos, ${screenVar} screen-recording`;
+    galleryDataInfo.innerHTML = `
+                                <div class="data-info-header"><i class="bi bi-images camera-icon"></i>All Media</div>
+                                <div class="data-info-main">${imgVar} photos, ${videoVar} videos, ${screenVar} screen-recording</div>
+                        `;
 };
 
 deleteAllData.addEventListener("click", (e) => {
