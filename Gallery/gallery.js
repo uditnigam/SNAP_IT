@@ -49,14 +49,14 @@ function mediaContainerOfGallery(id, type, link, date, name) {
         mediaContainer.innerHTML = `
             <div class="top-buttons">
                 <div class="top-left-buttons">
-                    <img src="/Assests/Icons/Download.svg" class="download-button">
-                    <img src="/Assests/Icons/Cross.svg" class="cross">
+                    <img src="/SNAP_IT/Assests/Icons/Download.svg" class="download-button">
+                    <img src="/SNAP_IT/Assests/Icons/Cross.svg" class="cross">
                 </div>
                 <img class="image" src="${link}" name="${name}"></img>
             </div>
             <div class="card-button">
                 <div class="media-name">${name}</div>
-                <img src="/Assests/Icons/Edit.svg" class=" edit-button">
+                <img src="/SNAP_IT/Assests/Icons/Edit.svg" class=" edit-button">
             </div>`
     } else {
         type == "screen" ?
@@ -65,14 +65,14 @@ function mediaContainerOfGallery(id, type, link, date, name) {
         mediaContainer.innerHTML = `
         <div class="top-buttons">
             <div class="top-left-buttons">
-                <i class="bi bi-x-circle-fill cross"></i>
-                <i class="bi bi-file-arrow-down-fill download-button"></i>
+                <img src="/SNAP_IT/Assests/Icons/Download.svg" class="download-button">
+                <img src="/SNAP_IT/Assests/Icons/Cross.svg" class="cross">
             </div>
             <video class="video" name="${name}"></video>
         </div>
         <div class="card-button">
             <div class="media-name">${name}</div>
-            <i class="bi bi-pencil-fill edit-button"></i>
+            <img src="/SNAP_IT/Assests/Icons/Edit.svg" class=" edit-button">
         </div>`;
         const videoDisplayCont = mediaContainer.querySelector(".video");
         videoDisplayCont.src = window.URL.createObjectURL(link);

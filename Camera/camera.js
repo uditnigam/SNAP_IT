@@ -38,7 +38,7 @@ cameraPageBackBtn.addEventListener("click", (e) => {
 });
 //ON CLICK OF GALLERY OPEN BUTTON ON CAMERA PAGE, PAGE NAVIGATES TO THE GALLERY
 galleryOpenButton.addEventListener("click", (e) => {
-    window.location.href = "/Gallery/gallery.html";
+    window.location.href = "/SNAP_IT/Gallery/gallery.html";
 });
 
 //Creating a functionality to promt for  permission and open the device's camera if it is available
