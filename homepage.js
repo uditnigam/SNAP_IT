@@ -6,11 +6,11 @@ const galleryBtn = document.querySelector(".right-container-gallery-btn");
 
 
 cameraBtn.addEventListener("click", (e) => {
-    window.location.href = "/Camera/camera.html";
+    window.location.href = "/SNAP_IT/Camera/camera.html";
 })
 
 galleryBtn.addEventListener("click", (e) => {
-    window.location.href = "/Gallery/gallery.html";
+    window.location.href = "/SNAP_IT/Gallery/gallery.html";
 })
 
 const displayMediaOptions = {

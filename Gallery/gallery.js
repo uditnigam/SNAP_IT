@@ -1,14 +1,17 @@
 const galleryPageBackBtn = document.querySelector(".gallery-container-back-btn");
 const searchInput = document.querySelector(".searchInput");
 const searchIcon = document.querySelector(".searchIcon");
-const galleryFilter = document.querySelector(".filter-btn-group");
-const gallerySorting = document.querySelector(".sort-btn-group");
+const galleryFilter = document.querySelectorAll(".filter-dropdown-item");
+const mediaContainer = document.querySelectorAll(".media-container");
+const sortingValueByMethod = document.querySelectorAll(".sorting-by-method");
+const sortingValueByOrder = document.querySelectorAll(".sorting-by-order");
 const loader = document.querySelector(".page-loader");
 const galleryContainer = document.querySelector(".gallery-container");
 const deleteAllData = document.querySelector(".delete-all-data");
 const galleryDataInfo = document.querySelector(".gallery-data-info");
 
-
+let currentSortingMethod = "date";
+let currentSortingOrder = "ascending";
 let imgVar = 0;
 let videoVar = 0;
 let screenVar = 0;
@@ -20,7 +23,7 @@ function myFunction() {
 }
 
 galleryPageBackBtn.addEventListener("click", (e) => {
-    window.location.href = "/index.html";
+    window.location.href = "/SNAP_IT/index.html";
 });
 
 setTimeout(function () {
@@ -42,35 +45,35 @@ function mediaContainerOfGallery(id, type, link, date, name) {
     mediaContainer.setAttribute("class", "media-container");
     mediaContainer.setAttribute("uid", id);
     if (type === "img") {
-        mediaContainer.classList.add("image");
+        mediaContainer.classList.add("images");
         mediaContainer.innerHTML = `
             <div class="top-buttons">
                 <div class="top-left-buttons">
-                    <i class="bi bi-x-circle-fill cross"></i>
-                    <i class="bi bi-file-arrow-down-fill download-button"></i>
+                    <img src="/Assests/Icons/Download.svg" class="download-button">
+                    <img src="/Assests/Icons/Cross.svg" class="cross">
                 </div>
+                <img class="image" src="${link}" name="${name}"></img>
             </div>
-            <img class="image" src="${link}" name="${name}"></img>
             <div class="card-button">
                 <div class="media-name">${name}</div>
-                <i class="bi bi-pencil-fill edit-button"></i>
+                <img src="/Assests/Icons/Edit.svg" class=" edit-button">
             </div>`
     } else {
         type == "screen" ?
             mediaContainer.classList.add("screen") :
-            mediaContainer.classList.add("video");
+            mediaContainer.classList.add("videos");
         mediaContainer.innerHTML = `
         <div class="top-buttons">
             <div class="top-left-buttons">
                 <i class="bi bi-x-circle-fill cross"></i>
                 <i class="bi bi-file-arrow-down-fill download-button"></i>
             </div>
-        </div>
             <video class="video" name="${name}"></video>
-            <div class="card-button">
-                <div class="media-name">${name}</div>
-                <i class="bi bi-pencil-fill edit-button"></i>
-            </div>`;
+        </div>
+        <div class="card-button">
+            <div class="media-name">${name}</div>
+            <i class="bi bi-pencil-fill edit-button"></i>
+        </div>`;
         const videoDisplayCont = mediaContainer.querySelector(".video");
         videoDisplayCont.src = window.URL.createObjectURL(link);
         videoDisplayCont.autoplay = true;
@@ -92,8 +95,8 @@ function cardButton(e, mediaContainer) {
         // galleryDataInformation()
     }
     if (e.target.classList.contains("download-button")) {
-        const name = e.target.parentNode.parentNode.parentNode.children[2].children[0].innerText;
-        const target = e.currentTarget.children[1];
+        const name = e.target.parentNode.parentNode.parentElement.children[1].children[0].innerText;
+        const target = e.currentTarget.children[0].children[1];
         downloadMedia(target, name);
     }
     if (e.target.classList.contains("edit-button")) {
@@ -136,25 +139,6 @@ function downloadMedia(event, mediaName) {
     mediaLink.remove();
 };
 
-
-//Functionality of Search Bar in Gallery to search any item with its name
-// searchIcon.addEventListener("click", (e) => {
-//     const mediaContainer = document.querySelectorAll(".media-container");
-//     if (input) {
-//         mediaContainer.forEach((e) => {
-//             e.style.display = "flex"
-//             searchInput.style.display = "none";
-//             searchInput.value = "";
-//         })
-//         input = !input;
-//     }
-//     else {
-//         searchInput.style.display = "flex";
-//         input = !input;
-//         searchInput.focus();
-//     }
-// });
-
 searchInput.addEventListener("keyup", (e) => {
     const mediaContainer = document.querySelectorAll(".media-container");
     let query = e.target.value.toLowerCase();
@@ -190,67 +174,94 @@ window.addEventListener("keydown", function (event) {
 })
 
 //Functionality to Filter the items with the particular type.
-galleryFilter.addEventListener("change", (e) => {
-    const mediaContainer = document.querySelectorAll(".media-container");
-    const filterValue = e.target.id;
-    if (mediaContainer) {
-        if (filterValue === "all") {
-            mediaContainer.forEach((e) => {
-                e.style.display = "flex";
-                galleryDataInformation();
-            })
-        }
-        else {
-            mediaContainer.forEach((e) => {
-                if (filterValue === e.classList[1]) {
-                    console.log(e.classList[1].includes("image"));
-                    if (e.classList[1].includes("image")) {
-                        galleryDataInfo.innerText = `${imgVar}`;
-                    } else if (e.classList[1].includes("video")) {
-                        galleryDataInfo.innerText = `${videoVar}`;
-                    } else if (e.classList[1].includes("screen")) {
-                        galleryDataInfo.innerText = `${screenVar}`;
-                    }
+galleryFilter.forEach((e) => {
+    e.addEventListener("click", (ele) => {
+        const mediaContainer = document.querySelectorAll(".media-container");
+        const filterNameValue = (ele.currentTarget.children[1].innerText).toLowerCase();
+        const filterValueSplit = filterNameValue.split(" ");
+        const filterValue = filterValueSplit[0];
+        if (mediaContainer) {
+            if (filterValue === "all") {
+                mediaContainer.forEach((e) => {
                     e.style.display = "flex";
-                } else {
-                    e.style.display = "none";
-                }
+                    galleryDataInformation();
+                })
+            }
+            else {
+                mediaContainer.forEach((element) => {
+                    if (filterValue === element.classList[1]) {
+                        if (element.classList[1].includes("images")) {
+                            galleryDataInfo.innerHTML = `
+                            <div class="data-info-header"><i class="bi bi-images camera-icon"></i>Images</div>
+                            <div class="data-info-main">${imgVar} photos</div>
+                            `;
+                        } else if (element.classList[1].includes("videos")) {
+                            galleryDataInfo.innerHTML = `
+                            <div class="data-info-header"><i class="bi bi-images camera-icon"></i>Videos</div>
+                            <div class="data-info-main">${videoVar} videos</div>
+                            `;
+                        } else if (element.classList[1].includes("screen")) {
+                            galleryDataInfo.innerHTML = `
+                            <div class="data-info-header"><i class="bi bi-images camera-icon"></i>Screen Recording</div>
+                            <div class="data-info-main">${screenVar} screen recording</div>
+                            `;
+                        }
+                        element.style.display = "flex";
+                    } else {
+                        element.style.display = "none";
+                    }
+                })
+            }
+            galleryFilter.forEach((ele) => {
+                ele.classList.remove("active");
             })
+            e.classList.add("active");
         }
-    }
+    })
 });
 
-gallerySorting.addEventListener("change", (e) => {
-    const mediaContainer = document.querySelectorAll(".media-container");
-
-    const sortingValueByMethod = document.querySelectorAll(".sorting-by-method");
-    sortingValueByMethod.forEach((e) => {
-        if (e.checked) {
-            currentSortingMethod = e.id;
+// Functionality to Filter the items with Name and Date Created in "ascending" or "descending" order.
+sortingValueByMethod.forEach((e) => {
+    e.addEventListener("click", (ele) => {
+        currentSortingMethod = (e.getAttribute("value")).toLowerCase();
+        sortingValueByMethod.forEach((e) => {
+            e.classList.remove("active");
+        })
+        e.classList.add("active");
+        if (mediaContainer) {
+            if (currentSortingMethod === "date") {
+                selectionSort(galleryData, "date", currentSortingOrder)
+            } else {
+                selectionSort(galleryData, "name", currentSortingOrder)
+            }
+            galleryContainer.innerHTML = "";
         }
+        getMediaCardsFromDatabase();
     })
-    const sortingValueByOrder = document.querySelectorAll(".sorting-by-order");
-    sortingValueByOrder.forEach((e) => {
-        if (e.checked) {
-            currentSortingOrder = e.id;
+});
+sortingValueByOrder.forEach((e) => {
+    e.addEventListener("click", (ele) => {
+        currentSortingOrder = (e.getAttribute("value")).toLowerCase();
+        sortingValueByOrder.forEach((e) => {
+            e.classList.remove("active");
+        })
+        e.classList.add("active");
+        if (mediaContainer) {
+            if (currentSortingOrder === "ascending") {
+                selectionSort(galleryData, currentSortingMethod, "ascending")
+            } else {
+                selectionSort(galleryData, currentSortingMethod, "descending")
+            }
+            galleryContainer.innerHTML = "";
         }
+        getMediaCardsFromDatabase();
     })
-    if (mediaContainer) {
-        if (currentSortingMethod === "Date Created") {
-            selectionSort(galleryData, "date", currentSortingOrder)
-        } else {
-            selectionSort(galleryData, "name", currentSortingOrder)
-        }
-        galleryContainer.innerHTML = "";
-    }
-    getMediaCardsFromDatabase();
-})
-
+});
 function selectionSort(arr, method, order) {
     let n = arr.length;
     for (let i = 0; i < (n - 1); i++) {
         let min_max = i;
-        if (order == "Ascending")
+        if (order == "ascending")
             for (let j = i + 1; j < n; j++) {
                 if (arr[j][method] < arr[min_max][method]) {
                     min_max = j;
@@ -258,6 +269,7 @@ function selectionSort(arr, method, order) {
             }
         else
             for (let j = i + 1; j < n; j++) {
+                console.log("hy")
                 if (arr[j][method] > arr[min_max][method]) {
                     min_max = j;
                 }
@@ -269,7 +281,7 @@ function selectionSort(arr, method, order) {
         }
     }
 }
-// setInterval(galleryDataInformation, 1000);
+
 
 function galleryDataInformation() {
     galleryData.forEach((e) => {

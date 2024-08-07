@@ -18,7 +18,6 @@
 
 <body>
     <div class="container-fluid">
-
         <div class="row main-container">
             <div class="col-12 header-container">
                 <div class="row inner-top-container d-flex align-items-center">
@@ -41,82 +40,82 @@
                     <div class="col-2 search-here tools">
                         <button class="searchIcon bi bi-search"></button>
                         <hr class="solid">
-                        <!-- <br> -->
                         <input type="text" placeholder="Search your files..." class="searchInput">
                     </div>
-                    <div class="col-1 sort-here tools">
-                        <button class="sort-icon bi bi-filter-left" type="button" data-bs-toggle="dropdown"
-                            data-bs-auto-close="outside" aria-expanded="false">
-                        </button>
-                        <div class="sort-btn-group">
-                            <ul class="dropdown-menu ">
-                                <li>
-                                    <input type="radio" class="btn-check sorting-by-method" name="sortName"
-                                        id="Date Created" autocomplete="off" checked>
-                                    <label class="btn btn-outline-primary" value="Date Created" for="Date Created">Date
-                                        Created</label>
-                                </li>
-                                <li>
-                                    <input type="radio" class="btn-check sorting-by-method" name="sortName" id="Name"
-                                        autocomplete="off">
-                                    <label class="btn btn-outline-primary" value="Name" for="Name">Name</label>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <input type="radio" class="btn-check sorting-by-order" name="sortRadio"
-                                        id="Ascending" autocomplete="off" checked>
-                                    <label class="btn btn-outline-primary" value="Ascending"
-                                        for="Ascending">Ascending</label>
-                                </li>
-                                <li>
-                                    <input type="radio" class="btn-check sorting-by-order" name="sortRadio"
-                                        id="Descending" autocomplete="off">
-                                    <label class="btn btn-outline-primary" value="Descending"
-                                        for="Descending">Descending</label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-1 filter-here tools">
-                        <button type="button" class="filter-icon bi bi-funnel" data-bs-toggle="dropdown"
-                            data-bs-auto-close="outside" aria-expanded="false">
-                        </button>
-                        <div class="filter-btn-group">
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <input type="radio" class="btn-check" name="filterRadio" id="all" autocomplete="off"
-                                        checked>
-                                    <label class="btn btn-outline-primary" value="All" for="all">
-                                        All</label>
-                                </li>
-                                <li>
-                                    <input type="radio" class="btn-check" name="filterRadio" id="image"
-                                        autocomplete="off">
-                                    <label class="btn btn-outline-primary" value="images" for="image">Images</label>
-                                </li>
-                                <li>
-                                    <input type="radio" class="btn-check" name="filterRadio" id="video"
-                                        autocomplete="off">
-                                    <label class="btn btn-outline-primary" value="video" for="video">Videos</label>
-                                </li>
-                                <li>
-                                    <input type="radio" class="btn-check" name="filterRadio" id="screen"
-                                        autocomplete="off">
-                                    <label class="btn btn-outline-primary" value="screen" for="screen">Screen
-                                        Recording</label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-1 dropdown tools">
-                        <button class="bi bi-three-dots-vertical three-dots-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="col-1 dropdown delete-all tools">
+                        <button class="bi bi-trash delete-icon" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                         </button>
                         <ul class="dropdown-menu">
-                          <li class="delete-all-data">Delete All</li>
+                            <li class="delete-all-data">Delete All</li>
                         </ul>
-                      </div>
+                    </div>
+                    <div class="col-1 dropdown filter-here tools">
+                        <button class="btn btn-secondary dropdown-toggle bi bi-funnel" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        </button>
+                        <ul class="dropdown-menu filter-btn-group">
+                            <li>
+                                <div class="dropdown-item filter-dropdown-item active">
+                                    <img src="/Assests/Icons/Name.svg" width="18px">
+                                    <span>All</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown-item filter-dropdown-item">
+                                    <i class="bi bi-image"></i>
+                                    <span>Images</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown-item filter-dropdown-item">
+                                    <i class="bi bi-camera-video"></i>
+                                    <span>Videos</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown-item filter-dropdown-item">
+                                    <i class="bi bi-record-circle"></i>
+                                    <span>Screen Recording</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-1 dropdown sort-here tools ">
+                        <button class="btn btn-secondary dropdown-toggle bi bi-filter-left" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        </button>
+                        <ul class="dropdown-menu sort-btn-group">
+                            <li>
+                                <div class="dropdown-item sorting-by-method" value="Name">
+                                    <img src="/Assests/Icons/Name.svg" width="18px">
+                                    <span>Name</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown-item sorting-by-method active" value="Date">
+                                    <i class="bi bi-calendar-date"></i>
+                                    <span>Date Created</span>
+                                </div>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <div class="dropdown-item sorting-by-order active" value="Ascending">
+                                    <i class="bi bi-sort-alpha-up"></i>
+                                    <span>Ascending</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown-item sorting-by-order" value="Descending">
+                                    <i class="bi bi-sort-alpha-down"></i>
+                                    <span>Descending</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
 
             </div>
@@ -128,8 +127,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="/Database/indexed.js"></script>
-    <script src="/Gallery/gallery.js"></script>
+    <script src="/SNAP_IT/Database/indexed.js"></script>
+    <script src="/SNAP_IT/Gallery/gallery.js"></script>
 </body>
 
 </html>

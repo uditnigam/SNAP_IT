@@ -142,7 +142,7 @@ settingOpenBtn.addEventListener("click", (e) => {
     openNav();
 });
 function openNav() {
-    document.getElementById("mySidenav").style.width = "450px";
+    document.getElementById("mySidenav").style.width = "350px";
 };
 settingCloseIcon.addEventListener("click", (e) => {
     closeNav();

@@ -39,7 +39,7 @@
 .camera-container-back-btn {
     height: 100%;
     width: 4%;
-    font-size: 25px;
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,7 +52,7 @@
 }
 
 .camera-heading {
-    font-size: 20px;
+    font-size: 18px;
     color: rgba(189, 199, 204, 1);
     display: flex;
     align-items: center;
@@ -82,7 +82,7 @@
     height: 100%;
     width: 4%;
     padding-top: 10px;
-    padding-left: 35px;
+    padding-left: 30px;
     display: flex;
     justify-content: center;
     z-index: 1;
