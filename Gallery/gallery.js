@@ -66,7 +66,7 @@ function mediaContainerOfGallery(id, type, link, date, name) {
         <div class="top-buttons">
             <div class="top-left-buttons">
                 <img src="/SNAP_IT/Assests/Icons/Download.svg" class="download-button">
-                <img src="/SNAP_IT/Assests/Icons/Cross.svg" class="cross">
+            <img src="/SNAP_IT/Assests/Icons/Cross.svg" class="cross">
             </div>
             <video class="video" name="${name}"></video>
         </div>
