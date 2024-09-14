@@ -62,6 +62,11 @@
 }
 
 /*****************  Middle container   ***********************************/
+
+.camera-blink{
+    opacity: 0.5;
+}
+
 .middle-container {
     background-color: rgb(0, 0, 0);
     height: 92%;
